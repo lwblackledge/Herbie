@@ -1,0 +1,188 @@
+body {
+	background-color: #000000;
+	border: 0mm;
+	color: #00ff00;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	margin: auto;
+	max-width: 200mm;
+	padding: 3mm;
+}
+
+#wrapper {
+	border: 0mm;
+	border-collapse: separate;
+	margin: 0mm;
+	padding: 0mm;
+	border-spacing: 2mm;
+	width: 100%;
+}
+
+#header {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	padding: 2mm;
+	background-color: #000000;
+	text-align: center;
+}
+
+#navigation {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	padding: 2mm;
+	background-color: #000000;
+	border: .5mm solid #00ff00;
+}
+
+#content {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	background-color: #000000;
+	border: 0mm;
+	margin: 0mm;
+	padding: 0mm;
+}
+
+#footer {
+	font-family: Verdana, Arial, sans-serif;
+	padding: 2mm;
+	font-size: small;
+}
+
+p {
+	border: 0mm;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	margin: 0mm 0mm 3mm 0mm;
+	padding: 0mm;
+}
+
+#old_table {
+	border: 0mm;
+	border-collapse: separate;
+	border-spacing: 0mm;
+	margin: 0mm;
+	padding: 0mm;
+}
+
+#old_content {
+	background-color: #000000;
+	border: 0mm;
+	margin: 0mm;
+	padding: 0mm;
+}
+
+form, input, textarea {
+	font-family: Courier, monotype;
+	font-size: 3mm;
+}
+
+h1 {
+	border: 0mm;
+	font-size: xx-large;
+	font-weight: bolder;
+	margin: 2mm 0mm 2mm 0mm;
+	padding: 0mm;
+}
+
+h2 {
+	border: 0mm;
+	font-size: x-large;
+	font-weight: bolder;
+	margin: 2mm 0mm 2mm 0mm;
+	padding: 0mm;
+}
+
+h3, h4, h5, h6 {
+	border: 0mm;
+	font-size: large;
+	font-weight: bolder;
+	margin: 2mm 0mm 2mm 0mm;
+	padding: 0mm;
+}
+
+:link, :link:active, :link:hover {
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+:visited, :visited:active, :visited:hover {
+	color: #00ff00;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.blog_entry {
+	border: .5mm solid #00ff00;
+	margin: 0mm 0mm 3mm 0mm;
+	padding: 0mm 1mm 1mm 1mm;
+}
+
+.subject {
+	border: 0mm;
+	margin: 0mm -1mm 2mm -1mm;
+	padding: 1mm 2mm 1mm 2mm;
+
+}
+
+.tagline {
+	font-size: small;
+}
+
+.comments {
+	font-size: small;
+	margin: 4mm 0mm 2mm 0mm;
+	text-align: center;
+}
+
+.genmed {
+	font-size: small;
+}
+
+.code, .quote {
+	border: .5mm solid gray;
+}
+
+.blog_box {
+	border: .5mm solid gray;
+	margin: 3mm 0mm 2mm 0mm;
+}
+
+#logo {
+	float: left;
+	margin: 0mm 5mm 1mm 1mm;
+}
+
+.cal_header {
+	background-color: #EAF4DA;
+	text-align: center;
+}
+
+.calendar {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	padding: 2mm;
+	border: .5mm solid #a9834f;
+	background-color: #EAF4DA;
+}
+
+.old_td {
+	font-family: Verdana, Arial, sans-serif;
+	font-size: medium;
+	padding: 2mm;
+}
+
+.cal_normal {
+	font-size: small;
+	margin: 4mm 0mm 2mm 0mm;
+	text-align: center;
+	color: #FF0000;
+}
+
+.cal_link {
+	font-size: small;
+	margin: 4mm 0mm 2mm 0mm;
+	text-align: center;
+	color: #FF0000;
+}

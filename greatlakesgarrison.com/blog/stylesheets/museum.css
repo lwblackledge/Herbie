@@ -1,0 +1,191 @@
+body {
+	background-color: #ffffff;
+	border: 0mm;
+	color: #724C21;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	margin: auto;
+	max-width: 200mm;
+	padding: 3mm;
+}
+
+#wrapper {
+	border: 0mm;
+	border-collapse: separate;
+	margin: 0mm;
+	padding: 0mm;
+	border-spacing: 2mm;
+	width: 100%;
+}
+
+#header {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	padding: 2mm;
+	background-color: #E1F2C4;
+	border: .5mm solid #A8D59D;
+	text-align: center;
+}
+
+#navigation {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	padding: 2mm;
+	background-color: #E1F2C4;
+	border: .5mm solid #A8D59D;
+}
+
+#content {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	background-color: #EAF4DA;
+	border: 0mm;
+	margin: 0mm;
+	padding: 0mm;
+}
+
+#footer {
+	font-family: Arial, Helvetica, sans-serif;
+	padding: 2mm;
+	font-size: small;
+}
+
+p {
+	border: 0mm;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	margin: 0mm 0mm 3mm 0mm;
+	padding: 0mm;
+}
+
+#old_table {
+	border: 0mm;
+	border-collapse: separate;
+	border-spacing: 0mm;
+	margin: 0mm;
+	padding: 0mm;
+}
+
+#old_content {
+	background-color: #EAF4DA;
+	border: 0mm;
+	margin: 0mm;
+	padding: 0mm;
+}
+
+form, input, textarea {
+	font-family: Courier, monotype;
+	font-size: 3mm;
+}
+
+h1 {
+	border: 0mm;
+	font-size: x-large;
+	font-weight: bolder;
+	margin: 2mm 0mm 2mm 0mm;
+	padding: 0mm;
+}
+
+h2 {
+	border: 0mm;
+	font-size: large;
+	font-weight: bolder;
+	margin: 2mm 0mm 2mm 0mm;
+	padding: 0mm;
+}
+
+h3, h4, h5, h6 {
+	border: 0mm;
+	font-size: medium;
+	font-weight: bolder;
+	margin: 2mm 0mm 2mm 0mm;
+	padding: 0mm;
+}
+
+:link, :link:active, :link:hover {
+	color: #724C21;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+:visited, :visited:active, :visited:hover {
+	color: #724C21;
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+.blog_entry {
+	border: .5mm solid #a9834f;
+	margin: 0mm 0mm 3mm 0mm;
+	padding: 0mm 1mm 1mm 1mm;
+}
+
+.subject {
+	border-bottom: .5mm solid #a9834f;
+	border-left: 0mm;
+	border-right: 0mm;
+	border-top: 0mm;
+	margin: 0mm -1mm 2mm -1mm;
+	padding: 1mm 2mm 1mm 2mm;
+}
+
+.tagline {
+	font-size: small;
+}
+
+.comments {
+	font-size: small;
+	margin: 4mm 0mm 2mm 0mm;
+	text-align: center;
+}
+
+.genmed {
+	font-size: small;
+}
+
+.code, .quote {
+	border: .5mm solid #a9834f;
+}
+
+.blog_box {
+	border: .5mm solid #a9834f;
+	margin: 3mm 0mm 2mm 0mm;
+}
+
+#logo {
+	float: left;
+	margin: 0mm 5mm 1mm 1mm;
+}
+
+.cal_header {
+	background-color: #EAF4DA;
+	text-align: center;
+}
+
+.calendar {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	padding: 2mm;
+	border: .5mm solid #a9834f;
+	background-color: #EAF4DA;
+}
+
+.old_td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: small;
+	padding: 2mm;
+}
+
+.cal_normal {
+	font-size: small;
+	margin: 4mm 0mm 2mm 0mm;
+	text-align: center;
+	color: #FF0000;
+}
+
+.cal_link {
+	font-size: small;
+	margin: 4mm 0mm 2mm 0mm;
+	text-align: center;
+	color: #FF0000;
+}
