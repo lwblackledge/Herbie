@@ -1,0 +1,159 @@
+html	{
+	height: 100%;
+	}
+	
+body {
+	font-family: Verdana, Geneva, Arial, helvetica, sans-serif;
+	font-size: 12px;
+	color: #eeeeee;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	text-align:center;
+	background-color: #000;
+	background-image: url(../img/background-side_401left.png), url(../img/background-side_401right.png), url(../img/starfield.jpg);
+	background-attachment: fixed, fixed, fixed;
+	background-position: bottom left, bottom right, top;
+	background-repeat: no-repeat, no-repeat, repeat;
+
+	}
+
+a	{
+	color: #ffff40;
+	text-decoration: none;
+	}
+	
+a:hover	{
+	color: #FF9900;
+	}
+	
+a:visited	{
+	color: #FFFF99;
+	}
+	
+a:active	{
+	color: #cc0000;
+	}
+
+h1	{
+	font-size: 14px;
+	text-transform: uppercase;
+	color: #fff;
+	background-color: #3f83ff;
+	letter-spacing: 3px;
+	padding: 3px 0px 3px 10px;
+	}
+
+h2	{
+	font-size: 12px;
+	text-transform: uppercase;
+	font-style: italic;
+	letter-spacing: 3px;
+	background-color: #7baaff;
+	padding: 3px 0px 3px 10px;
+	}
+
+h3	{
+	font-size: 10px;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	background-color: #b9d3ff;
+	color: #5254a4;
+	padding: 3px 0px 3px 10px;
+	
+	}
+tr.rostertable_trooper td	{
+	border-top: 1px dashed #ccc;
+	}
+
+tr.rostertable_officer td	{
+	border-top: 1px dashed #ccc;
+	background-color: #29a;
+	}
+
+.superoutside	{
+	width: 1000px;
+	border: 0px solid #000;
+	text-align:justify;
+	}
+
+#header	{
+	margin-bottom: 20px;
+	}
+	
+#header img {
+	vertical-align: middle;
+	}
+	
+.content	{
+	border-radius: 20px 20px 20px 20px; 
+	-moz-border-radius: 20px 20px 20px 20px; 
+	-webkit-border-radius: 20px 20px 20px 20px;
+	border: 0px solid #800000;
+	margin-top: 20px;
+	padding: 10px 25px 20px 25px;
+	background-color: #516173;
+	background-image: url(../img/gradient_blue.png);
+	background-position: top;
+	background-repeat: repeat-x;
+	
+	height: 100%;
+	text-align: left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: justify;
+	}
+
+.mainbar	{
+	border: 0px solid #033165;
+	margin-top: 20px;
+	padding: 10px 30px 20px 30px;
+	text-align: left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: justify;
+	float: left;
+	width: 500px;
+	}
+	
+.sidebar	{
+	border: 0px solid #033165;
+	margin-top: 20px;
+	padding: 10px 30px 20px 30px;
+	text-align: left;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: justify;
+	float: right;
+	width: 300px;
+	}
+
+#myGallery {
+	width: 400px !important;
+	height: 200px !important;
+	} 
+	
+#footerlinks	{
+	font-size: 8px;
+	text-align: center;
+	}
+
+#footerlinks a	{
+	color: #fff;
+	text-decoration: none;
+	}
+	
+#footerlinks a:hover	{
+	color: #000;
+	background-color: #ffffcc;
+	}
+
+.rostertable_officer	{
+	text-align: center;
+	background-color: #099;
+	}
+	
+.rostertable_trooper	{
+	text-align: center;
+	background-color: none;
+	}
