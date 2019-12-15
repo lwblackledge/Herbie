@@ -1,6 +1,11 @@
 <?php
 
-mysql_connect($host,$uname,$keycard) or die("Can't  find the database.  Sorry.");
-mysql_select_db($db_name) or die("Can't get the database.  Clueless  why.");
+$mysqli = null;
+try {
+    $mysqli = new mysqli($host, $uname, $keycard, $db_name);
+} catch (Error $e) {
+    print($e);
+    die("Can't  find the database.  Sorry.");
+}
 
 ?>
