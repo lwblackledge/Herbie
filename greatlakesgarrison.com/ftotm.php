@@ -38,7 +38,7 @@ $all_ftotm = mysql_query ("
 	<tr>
 		<td valign=top width=650>
 <?
-while ($parse = mysql_fetch_array($ftotm_full)) {
+while ($parse = $ftotm_full->fetch_assoc()) {
 	$ftotm_fname = $parse['first_name'];
 	$ftotm_lname = $parse['last_name'];
 	$ftotm_tkid = $parse['tkid'];

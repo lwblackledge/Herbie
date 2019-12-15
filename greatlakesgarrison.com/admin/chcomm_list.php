@@ -2,13 +2,13 @@
 include ('../dbaccess.php');
 include ('../dbconnect.php');
 
-$chcomm_list = mysql_query("
+$chcomm_list = $conn->query("
 	select *
 	from charity_community_list
 	order by chcomm_name, chcomm_city
 	");
 	
-while ($row = mysql_fetch_array($chcomm_list)) {
+while ($row = $chcomm_list->fetch_assoc()) {
 	include ('../dbvars.php');
 	
 	echo "<b>$chcomm_name</b><br>

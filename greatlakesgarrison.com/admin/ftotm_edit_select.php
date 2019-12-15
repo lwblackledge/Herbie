@@ -2,7 +2,7 @@
 //EDIT FTOTM
 include ("admin_header.php");
 
-$ftotm_choose_sql = mysql_query("
+$ftotm_choose_sql = $conn->query("
 	select ftotm_id, ftotm_month, ftotm_year, first_name, last_name
 	from ftotm, roster_members
 	where ftotm.ftotm_tkid = roster_members.tkid
@@ -13,7 +13,7 @@ echo "<form method=\"post\" action=\"ftotm_edit.php\">
 Select entry to edit: <select name=\"ftotm_select\">
 ";
 
-while ($row = mysql_fetch_array($ftotm_choose_sql)) {
+while ($row = $ftotm_choose_sql->fetch_assoc()) {
 	$id = $row['ftotm_id'];
 	$month = $row['ftotm_month'];
 	$year = $row['ftotm_year'];

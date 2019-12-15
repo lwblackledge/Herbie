@@ -5,13 +5,13 @@ include ('admin_header.php');
 // ADD NEW MEMBER
 
 // Parse costume types to generate an initial costume for the sake of data entry
-$costume_query=mysql_query("select * from roster_costumes");
+$costume_query=$conn->query("select * from roster_costumes");
 
 // Query member status code for initial entry
-$status_query=mysql_query("select * from roster_status");
+$status_query=$conn->query("select * from roster_status");
 
 // State listings
-$state_sql = mysql_query("
+$state_sql = $conn->query("
 	select state_id, state_abbr
 	from roster_state_id
 	order by state_abbr
@@ -68,7 +68,7 @@ $state_sql = mysql_query("
 		<td>
 			<select name="state">
 			<?php
-			while ($row = mysql_fetch_array($state_sql)) {
+			while ($row = $state_sql->fetch_assoc()) {
 				echo "
 				<option value=\"" . $row['state_id'] . "\"";
 				if ($row['state_id'] == 1) {
@@ -88,7 +88,7 @@ $state_sql = mysql_query("
 		<td>
 			<select name="costume">
 <?
-while($row=mysql_fetch_array($costume_query)) {
+while($row=$costume_query->fetch_assoc()) {
 	include ('../z_dbvars.php');
 	
 	echo"	<option value=$costume_id>$costume_name</option>
@@ -103,7 +103,7 @@ while($row=mysql_fetch_array($costume_query)) {
 			Initial status:<br>
 			
 <?php
-while ($row=mysql_fetch_array($status_query)) {
+while ($row=$status_query->fetch_assoc()) {
 	include ('../z_dbvars.php');
 
 	echo "			<input type=\"radio\" name=\"status\" value=\"$status_id\"";

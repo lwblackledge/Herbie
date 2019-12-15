@@ -21,7 +21,7 @@ include ("admin_header.php");
 	$next_year = $current_year + 1; //assuming that FTOTMs are written monthly, the only different year needed would be for the following year if the entry for January 20xx was written in December.
 
 // ERROR CHECKING: Check if an entry for this month exists already
-	$existing_entry_check = mysql_query("
+	$existing_entry_check = $conn->query("
 		select *
 		from ftotm
 		where ftotm_month = '$current month'
@@ -82,7 +82,7 @@ include ("admin_header.php");
 		<td valign="top">
 			<select name="select_tkid">
 <?php
-	while ($row = mysql_fetch_array($tkid_list)) {
+	while ($row = $tkid_list->fetch_assoc()) {
 		$tkid = $row['tkid'];
 		$first_name = $row['first_name'];
 		$last_name = $row['last_name'];

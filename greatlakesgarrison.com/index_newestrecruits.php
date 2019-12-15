@@ -9,13 +9,13 @@ $new_member_query = "
 	order by member_since desc, trooper_id desc
 	limit 0," . $limit;
 
-$new_member_sql = mysql_query($new_member_query);
+$new_member_sql = $conn->query($new_member_query);
 ?>
 
 <table cellpadding=5 cellspacing=0 border=0>
 
 <?
-while ($newest = mysql_fetch_array($new_member_sql)) {
+while ($newest = $new_member_sql->fetch_assoc()) {
 	$trooper_id = $newest['trooper_id'];
 
 	// APRIL FOOLS 2015

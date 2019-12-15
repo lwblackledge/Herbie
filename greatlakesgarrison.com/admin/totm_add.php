@@ -3,7 +3,7 @@ include ('admin_header.php');
 
 $id = $_GET['id'];
 
-$trooper_detail = mysql_query("
+$trooper_detail = $conn->query("
 	select *
 	from roster_members
 	where trooper_id = $id
@@ -13,7 +13,7 @@ $trooper_detail = mysql_query("
 <h2>Trooper of the Month</h2>
 <form action="totm_process.php" method="post">
 <?
-while ($row = mysql_fetch_array($trooper_detail)) {
+while ($row = $trooper_detail->fetch_assoc()) {
 	include ("../dbvars.php");
 	echo "<b>$first_name $last_name ($tkid)</b><P>
 ";

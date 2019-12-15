@@ -1,5 +1,5 @@
 <?
-$event_sql = mysql_query("
+$event_sql = $conn->query("
 	select event_name, event_description, date_format(event_date, '%a., %c/%e') as short_date, event_city, event_state
 	from events
 	where is_private <> 1
@@ -19,7 +19,7 @@ $downthepike = mysql_query ("
 	limit 5,5
 	");
 
-while ($row=mysql_fetch_array($event_sql)) {
+while ($row=$event_sql->fetch_assoc()) {
 	$event_name=$row['event_name'];
 	$event_description=$row['event_description'];
 	$short_date=$row['short_date'];
@@ -36,7 +36,7 @@ while ($row=mysql_fetch_array($event_sql)) {
 }
 ?>
 <?
-while ($row_b = mysql_fetch_array($downthepike)) {
+while ($row_b = $downthepike->fetch_assoc()) {
 	$event_name_b=$row_b['event_name'];
 	$short_date_b=$row_b['short_date_dtp'];
 	$event_city_b=$row_b['event_city'];

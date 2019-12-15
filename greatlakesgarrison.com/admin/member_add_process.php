@@ -17,7 +17,7 @@ $unix_event_date = mktime(0,0,0,$add_month,1,$add_year);
 $member_date=date("Y-m-j" , $unix_event_date);
 
 /* CHECK IF RECORD ALREADY EXISTS */
-$check_table=mysql_query("select * from roster_members where tkid=$add_tk");
+$check_table=$conn->query("select * from roster_members where tkid=$add_tk");
 $num_rows=mysql_num_rows($check_table);
 
 if ($num_rows>0){
@@ -41,13 +41,13 @@ $get_new_trooper_id = "
 $insert_outfit = "insert into roster_outfit (trooper_id, costume_id, outfit_variant)
 values ('$new_trooper_index', '$add_costume', '1')";
 
-mysql_query($insert_trooper);
+$conn->query($insert_trooper);
 
-$new_trooper_id = mysql_query($get_new_trooper_id);
+$new_trooper_id = $conn->query($get_new_trooper_id);
 
-while ($row = mysql_fetch_array($new_trooper_id)) {
+while ($row = $new_trooper_id->fetch_assoc()) {
 	$new_trooper_index = $row['trooper_id'];
-	mysql_query("insert into roster_outfit (trooper_id, costume_id, outfit_variant)
+	$conn->query("insert into roster_outfit (trooper_id, costume_id, outfit_variant)
 values ('$new_trooper_index', '$add_costume', '1')");
 	}
 	

@@ -8,7 +8,7 @@ $select_tkid = $_POST[select_tkid];
 $select_text = addslashes($_POST[select_text]);
 $select_show = $_POST[select_show];
 
-$add_ftotm = mysql_query("
+$add_ftotm = $conn->query("
 	insert into ftotm(ftotm_tkid, ftotm_month, ftotm_year, ftotm_text, ftotm_show)
 	values (
 		$select_tkid,

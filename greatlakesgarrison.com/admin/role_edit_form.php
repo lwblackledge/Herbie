@@ -14,7 +14,7 @@ echo "Edit role values:<P>
 echo "<form action=\"role_edit_process.php\" method=\"post\">
 ";
 
-while ($row = mysql_fetch_array($role_query)) {
+while ($row = $role_query->fetch_assoc()) {
 	$role_id = $row['role_id'];
 	$role_name = $row['role_name'];
 	$role_abbr = $row['role_abbr'];

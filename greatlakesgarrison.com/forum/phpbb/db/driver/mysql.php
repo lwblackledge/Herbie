@@ -64,12 +64,12 @@ class mysql extends \phpbb\db\driver\mysql_base
 				// Determine what version we are using and if it natively supports UNICODE
 				if (version_compare($this->sql_server_info(true), '4.1.0', '>='))
 				{
-					@mysql_query("SET NAMES 'utf8'", $this->db_connect_id);
+					@$conn->query("SET NAMES 'utf8'", $this->db_connect_id);
 
 					// enforce strict mode on databases that support it
 					if (version_compare($this->sql_server_info(true), '5.0.2', '>='))
 					{
-						$result = @mysql_query('SELECT @@session.sql_mode AS sql_mode', $this->db_connect_id);
+						$result = @$conn->query('SELECT @@session.sql_mode AS sql_mode', $this->db_connect_id);
 						$row = @mysql_fetch_assoc($result);
 						@mysql_free_result($result);
 						$modes = array_map('trim', explode(',', $row['sql_mode']));
@@ -89,7 +89,7 @@ class mysql extends \phpbb\db\driver\mysql_base
 						}
 
 						$mode = implode(',', $modes);
-						@mysql_query("SET SESSION sql_mode='{$mode}'", $this->db_connect_id);
+						@$conn->query("SET SESSION sql_mode='{$mode}'", $this->db_connect_id);
 					}
 				}
 				else if (version_compare($this->sql_server_info(true), '4.0.0', '<'))
@@ -113,7 +113,7 @@ class mysql extends \phpbb\db\driver\mysql_base
 
 		if (!$use_cache || empty($cache) || ($this->sql_server_version = $cache->get('mysql_version')) === false)
 		{
-			$result = @mysql_query('SELECT VERSION() AS version', $this->db_connect_id);
+			$result = @$conn->query('SELECT VERSION() AS version', $this->db_connect_id);
 			$row = @mysql_fetch_assoc($result);
 			@mysql_free_result($result);
 
@@ -137,15 +137,15 @@ class mysql extends \phpbb\db\driver\mysql_base
 		switch ($status)
 		{
 			case 'begin':
-				return @mysql_query('BEGIN', $this->db_connect_id);
+				return @$conn->query('BEGIN', $this->db_connect_id);
 			break;
 
 			case 'commit':
-				return @mysql_query('COMMIT', $this->db_connect_id);
+				return @$conn->query('COMMIT', $this->db_connect_id);
 			break;
 
 			case 'rollback':
-				return @mysql_query('ROLLBACK', $this->db_connect_id);
+				return @$conn->query('ROLLBACK', $this->db_connect_id);
 			break;
 		}
 
@@ -176,7 +176,7 @@ class mysql extends \phpbb\db\driver\mysql_base
 
 			if ($this->query_result === false)
 			{
-				if (($this->query_result = @mysql_query($query, $this->db_connect_id)) === false)
+				if (($this->query_result = @$conn->query($query, $this->db_connect_id)) === false)
 				{
 					$this->sql_error($query);
 				}
@@ -406,10 +406,10 @@ class mysql extends \phpbb\db\driver\mysql_base
 					// begin profiling
 					if ($test_prof)
 					{
-						@mysql_query('SET profiling = 1;', $this->db_connect_id);
+						@$conn->query('SET profiling = 1;', $this->db_connect_id);
 					}
 
-					if ($result = @mysql_query("EXPLAIN $explain_query", $this->db_connect_id))
+					if ($result = @$conn->query("EXPLAIN $explain_query", $this->db_connect_id))
 					{
 						while ($row = @mysql_fetch_assoc($result))
 						{
@@ -428,7 +428,7 @@ class mysql extends \phpbb\db\driver\mysql_base
 						$html_table = false;
 
 						// get the last profile
-						if ($result = @mysql_query('SHOW PROFILE ALL;', $this->db_connect_id))
+						if ($result = @$conn->query('SHOW PROFILE ALL;', $this->db_connect_id))
 						{
 							$this->html_hold .= '<br />';
 							while ($row = @mysql_fetch_assoc($result))
@@ -457,7 +457,7 @@ class mysql extends \phpbb\db\driver\mysql_base
 							$this->html_hold .= '</table>';
 						}
 
-						@mysql_query('SET profiling = 0;', $this->db_connect_id);
+						@$conn->query('SET profiling = 0;', $this->db_connect_id);
 					}
 				}
 
@@ -467,7 +467,7 @@ class mysql extends \phpbb\db\driver\mysql_base
 				$endtime = explode(' ', microtime());
 				$endtime = $endtime[0] + $endtime[1];
 
-				$result = @mysql_query($query, $this->db_connect_id);
+				$result = @$conn->query($query, $this->db_connect_id);
 				while ($void = @mysql_fetch_assoc($result))
 				{
 					// Take the time spent on parsing rows into account

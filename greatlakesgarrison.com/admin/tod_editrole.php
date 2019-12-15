@@ -20,7 +20,7 @@ $event_info_sql = mysql_query ("
 	where event_id = $form_event_id
 	");
 	
-while ($ev_row = mysql_fetch_array($event_info_sql)) {
+while ($ev_row = $event_info_sql->fetch_assoc()) {
 	$event_name = $ev_row['event_name'];
 	$event_city = $ev_row['event_city'];
 	$event_state = $ev_row['event_state'];
@@ -31,7 +31,7 @@ while ($ev_row = mysql_fetch_array($event_info_sql)) {
 	echo "<form action=\"tod_editrole_process.php\" method=\"post\">";
 	echo "<table cellpadding=0 cellspacing=10 border=0>";
 
-	while ($row = mysql_fetch_array($participation_sql)) {
+	while ($row = $participation_sql->fetch_assoc()) {
 		$first_name = $row['first_name'];
 		$last_name = $row['last_name'];
 		$tkid = $row['tkid'];

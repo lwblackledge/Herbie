@@ -2,7 +2,7 @@
 include ("z_header.php");
 
 // Default roster display of all members
-$roster_sql = mysql_query("
+$roster_sql = $conn->query("
 	select *
 	from roster_members, roster_roles
 	where status_id=1
@@ -10,7 +10,7 @@ $roster_sql = mysql_query("
 	order by tkid
 ");
 
-$gml_sql = mysql_query("
+$gml_sql = $conn->query("
 	select concat(first_name,' ',last_name) as gml_name, e_mail
 	from roster_members
 	where role_id = 4
@@ -27,7 +27,7 @@ $cell_count = 1;
 <br />
 <a name="top"></a>
 <?
-while ($gml_row=mysql_fetch_array($gml_sql)) {
+while ($gml_row=$gml_sql->fetch_assoc()) {
 	$gml_name=$gml_row['gml_name'];
 	$e_mail = $gml_row['e_mail'];
 
@@ -41,7 +41,7 @@ while ($gml_row=mysql_fetch_array($gml_sql)) {
 <table cellpadding=5 cellspacing=20 border=0>
 	<tr>
 <?
-while ($row=mysql_fetch_array($roster_sql)) {
+while ($row=$roster_sql->fetch_assoc()) {
     include ('z_dbvars.php');
 
     $img_thumb = "rosterimg/" . tk_pad($tkid) . "_tn.gif";

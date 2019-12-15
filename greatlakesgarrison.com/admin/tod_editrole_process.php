@@ -7,7 +7,7 @@ $select_role = $_POST['select_role'];
 $num_troops = sizeof($select_role);
 
 for ($a = 0; $a < $num_troops; $a++) {
-	mysql_query("
+	$conn->query("
 		update event_participation
 		set participation_role_id = '$select_role[$a]'
 		where event_id = '$event_id_form'

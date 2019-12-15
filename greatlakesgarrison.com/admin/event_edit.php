@@ -4,14 +4,14 @@ include ('admin_header.php');
 
 $event_id_selected = $_POST['event_list'];
 echo $event_id_selected . "<P>";
-$event_query = mysql_query("
+$event_query = $conn->query("
 	select event_id, event_name, event_description, event_date, event_city, event_state, event_postcode, forum_topic_id, is_private, is_active,
 		month(event_date) as event_month, day(event_date) as event_day, year(event_date) as event_year
 	from events
 	where event_id = $event_id_selected
 ");
 
-$check_campaign = mysql_query("
+$check_campaign = $conn->query("
 	select *
 	from event_awards
 	where event_id = $event_id_selected
@@ -19,7 +19,7 @@ $check_campaign = mysql_query("
 	
 $is_campaign = mysql_num_rows($check_campaign);
 
-while ($row = mysql_fetch_array($event_query)) {
+while ($row = $event_query->fetch_assoc()) {
 	include ('../z_dbvars.php');
 	$event_month = $row['event_month'];
 	$event_day = $row['event_day'];
@@ -161,7 +161,7 @@ echo "
 ";
 
 if ($is_campaign != 0) {
-	while ($camp = mysql_fetch_array($check_campaign)) {
+	while ($camp = $check_campaign->fetch_assoc()) {
 		$event_file = $camp['event_file'];
 		$campaign_active = $camp['campaign_active'];
 		

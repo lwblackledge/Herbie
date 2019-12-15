@@ -22,7 +22,7 @@ $costume_rpt = mysql_query ("
 
 $costume_num = mysql_num_rows($costume_rpt);
 
-while ($dtl = mysql_fetch_array($costume_dtl)) {
+while ($dtl = $costume_dtl->fetch_assoc()) {
 	$costume_name = $dtl[costume_name];
 	$costume_abbr = $dtl[costume_abbr];
 	
@@ -33,7 +33,7 @@ while ($dtl = mysql_fetch_array($costume_dtl)) {
 echo "<ol>
 ";
 
-while ($row = mysql_fetch_array($costume_rpt)) {
+while ($row = $costume_rpt->fetch_assoc()) {
 	include ('../dbvars.php');
 		
 	echo "	<li> ($costume_abbr-$tkid) <a href=\"../rosterx.php?id=$trooper_id\" target=\"_new\">$first_name $last_name</a>

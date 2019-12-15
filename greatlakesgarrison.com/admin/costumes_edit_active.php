@@ -4,7 +4,7 @@ include ('admin_header.php');
 $outfit_id_form = $_GET['o_id'];
 $get_set = $_GET['set'];
 
-mysql_query("
+$conn->query("
 		update roster_outfit
 		set active_flag = $get_set
 		where outfit_id = $outfit_id_form

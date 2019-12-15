@@ -27,7 +27,7 @@ switch ($sort_key) {
 		break;
 }
 
-$inactive_rpt_sql = mysql_query("
+$inactive_rpt_sql = $conn->query("
 	select *
 	from roster_members
 	where status_id = 2
@@ -83,7 +83,7 @@ echo"
 	</tr>
 ";
 
-while ($row = mysql_fetch_array($inactive_rpt_sql)) {
+while ($row = $inactive_rpt_sql->fetch_assoc()) {
 	include ("../z_dbvars.php");
 	echo "
 	<tr>

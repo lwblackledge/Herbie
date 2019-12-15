@@ -2,7 +2,7 @@
 include ("admin_header.php");
 $id = $_POST['ftotm_select'];
 
-$choose_record = mysql_query("
+$choose_record = $conn->query("
 	select ftotm_tkid, ftotm_month, ftotm_year, ftotm_text, first_name, last_name, ftotm_id
 	from ftotm, roster_members
 	where ftotm_tkid = roster_members.tkid

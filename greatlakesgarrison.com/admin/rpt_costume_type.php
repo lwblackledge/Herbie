@@ -1,7 +1,7 @@
 <?
 include ('admin_header.php');
 
-$costume_list = mysql_query("
+$costume_list = $conn->query("
 	select *
 	from roster_costumes
 	order by costume_abbr asc
@@ -12,7 +12,7 @@ $costume_list = mysql_query("
 <form method="post" action="rpt_costume_display.php">
 
 <?
-while ($row = mysql_fetch_array($costume_list)) {
+while ($row = $costume_list->fetch_assoc()) {
 	include ('../dbvars.php');
 	echo "	<input type=\"radio\" name=\"costume_select\" value=\"$costume_id\"> $costume_abbr - $costume_name <br>
 ";

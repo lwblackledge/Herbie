@@ -7,7 +7,7 @@ $part_ncs = "#f66";
 //* END PARTICIPATION COLOR KEY *
 
 $trooper_id = preg_replace('/[^0-9]/', '', $_GET['id']);
-$trooper_info=mysql_query("
+$trooper_info=$conn->query("
 	select *, date_format(member_since, '%M, %Y') as joined_date, datediff(curdate(), member_since) as membership_days
 	from roster_members, roster_state_id, roster_roles
 	where roster_members.state_id = roster_state_id.state_id
@@ -15,7 +15,7 @@ $trooper_info=mysql_query("
 	and roster_members.role_id = roster_roles.role_id
 ") or die ("Trooper info not loaded.");
 
-$trooper_costumes=mysql_query("
+$trooper_costumes=$conn->query("
 	select roster_members.trooper_id, tkid, lower(costume_abbr) as costume_abbr, costume_name, outfit_variant, active_flag
 	from roster_members, roster_costumes, roster_outfit
 	where roster_members.trooper_id = roster_outfit.trooper_id
@@ -27,7 +27,7 @@ $trooper_costumes=mysql_query("
 
 $costume_qty = mysql_num_rows ($trooper_costumes);
 
-$events_sql = mysql_query("
+$events_sql = $conn->query("
 	select date_format(event_date, '%c / %e / %y') as formatted_date, event_date, year(event_date) as event_year, event_name, event_city, event_state, participation_role_id
 	from events, event_participation
 	where events.event_id = event_participation.event_id
@@ -65,7 +65,7 @@ if (mysql_num_rows($trooper_info) == 0) {
 }
 // ** END ERROR HANDLING: Invalid Trooper ID **
 
-while ($row=mysql_fetch_array($trooper_info)) {
+while ($row=$trooper_info->fetch_assoc()) {
 	include("z_dbvars.php");
 	$padded_tk = tk_pad($tkid);
 	$photofile = $padded_tk."_profile.jpg";
@@ -151,7 +151,7 @@ echo "
 ";
 
 // ****************** NUMBER OF EVENTS SUBROUTINE ******************
-	$num_events_query = mysql_query("
+	$num_events_query = $conn->query("
 		select event_participation_id, is_active
 		from event_participation, events
 		where trooper_id = '$trooper_id'
@@ -246,7 +246,7 @@ echo "<P>
 		echo ":";
 		?> </h1>
 <?
-while ($row=mysql_fetch_array($trooper_costumes)) {
+while ($row=$trooper_costumes->fetch_assoc()) {
 	include ("z_dbvars.php");
 		$filename = $padded_tk . $costume_abbr . "_" . $outfit_variant . ".jpg";
 		if (file_exists("rosterimg/$filename")) {
@@ -280,7 +280,7 @@ while ($row=mysql_fetch_array($trooper_costumes)) {
 			<table cellpadding=0 cellspacing=5>
 <?
 $year_check = 0;
-while ($row2 = mysql_fetch_array($events_sql)) {
+while ($row2 = $events_sql->fetch_assoc()) {
 	$event_date = $row2['event_date'];
 	$event_year = $row2['event_year'];
 	$event_name = $row2['event_name'];

@@ -3,22 +3,22 @@ include ('admin_header.php');
 
 $id = $_GET['id'];
 
-$trooper_detail = mysql_query("
+$trooper_detail = $conn->query("
 	select *
 	from roster_members
 	where trooper_id = $id
 ");
 
-$status_query=mysql_query("
+$status_query=$conn->query("
 	select * from roster_status
 ");
 
-$role_query = mysql_query("
+$role_query = $conn->query("
 	select * from roster_roles
 ");
 
 // State listings
-$state_sql = mysql_query("
+$state_sql = $conn->query("
 	select state_id, state_abbr
 	from roster_state_id
 	order by state_abbr
@@ -29,7 +29,7 @@ $state_sql = mysql_query("
 <form action="member_edit_process.php" method="post">
 
 <?
-while ($row=mysql_fetch_array($trooper_detail)) {
+while ($row=$trooper_detail->fetch_assoc()) {
 	include ('../z_dbvars.php');
 	echo "
 <input type=\"hidden\" name=\"trooper_id\" value=\"$trooper_id\">
@@ -81,7 +81,7 @@ while ($row=mysql_fetch_array($trooper_detail)) {
 		<td>
 			<select name=\"state\">
 ";
-			while ($state_compare = mysql_fetch_array($state_sql)) {
+			while ($state_compare = $state_sql->fetch_assoc()) {
 				echo "
 				<option value=\"" . $state_compare['state_id'] . "\"";
 				if ($state_compare['state_id'] == $state_id) {
@@ -102,7 +102,7 @@ echo "
 ";
 	$trooper_status=$status_id;
 
-	while ($row2=mysql_fetch_array($status_query)) {
+	while ($row2=$status_query->fetch_assoc()) {
 		$status_id = $row2['status_id'];
 		$status = $row2['status'];
 		
@@ -155,7 +155,7 @@ for ($q = 1; $q < 13; $q++) {
 <?
 	$trooper_role = $role_id;
 
-	while ($row3 = mysql_fetch_array($role_query)) {
+	while ($row3 = $role_query->fetch_assoc()) {
 		$role_table_id = $row3['role_id'];
 		$role_name = $row3['role_name'];
 		

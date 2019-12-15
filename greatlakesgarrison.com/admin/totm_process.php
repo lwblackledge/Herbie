@@ -13,7 +13,7 @@ $totm_date=date("Y-m-j" , $unix_event_date);
 $insert_totm="INSERT INTO roster_totm (trooper_id, totm_date, totm_desc, is_tied)
 VALUES ('$add_trooper_id', '$totm_date', '$add_totm_desc', '$add_is_tied')";
 
-mysql_query($insert_totm);
+$conn->query($insert_totm);
 
 echo "<h2>Trooper of the Month</h2>";
 echo"Record added.<P>

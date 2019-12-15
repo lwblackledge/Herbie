@@ -5,7 +5,7 @@ include ('admin_header.php');
 $member_search = $_POST[member_search];
 $search_criterion = $_POST[search_criterion];
 
-$search = mysql_query("
+$search = $conn->query("
 select *
 from roster_members
 where $search_criterion = '$member_search'
@@ -18,7 +18,7 @@ switch ($records_found) {
 	case 0:
 		header('location: tod_member.php?nf=1');
 	case 1:
-		while ($row=mysql_fetch_array($search)) {
+		while ($row=$search->fetch_assoc()) {
 			include ("../dbvars.php");
 			header('location: tod_member_edit.php?id='.$trooper_id);
 		}
@@ -32,7 +32,7 @@ switch ($records_found) {
 				<th>&nbsp;</th>
 			</tr>
 ";
-		while ($row=mysql_fetch_array($search)) {
+		while ($row=$search->fetch_assoc()) {
 			include ("../dbvars.php");
 			echo "
 			<tr>

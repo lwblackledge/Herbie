@@ -34,7 +34,7 @@ $participant_query = mysql_query ("
 	order by tkid
 	");
 	
-while ($event_info_rows = mysql_fetch_array($event_detail)) {
+while ($event_info_rows = $event_detail->fetch_assoc()) {
 	$info_event_name = $event_info_rows['event_name'];
 	$info_event_description = $event_info_rows['event_description'];
 	$info_event_date = $event_info_rows['event_date'];
@@ -47,7 +47,7 @@ while ($event_info_rows = mysql_fetch_array($event_detail)) {
 	echo "<br><i>$info_event_description</i><br>";
 	echo "<ul>";
 	
-	while ($row = mysql_fetch_array($participant_query)) {
+	while ($row = $participant_query->fetch_assoc()) {
 		include ('z_dbvars.php');
 	
 		echo "	<li> <a href=\"rosterx.php?id=$trooper_id\" target=\"parent_window\">$tkid - $first_name $last_name</a>

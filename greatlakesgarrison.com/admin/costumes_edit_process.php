@@ -6,7 +6,7 @@ $trooper_id_form = $_POST['trooperid'];
 $num_events = sizeof($check);
 
 for ($a = 0; $a < $num_events; $a++) {
-	mysql_query("
+	$conn->query("
 		insert into roster_outfit (outfit_id, trooper_id, costume_id, outfit_variant, active_flag)
 		values ('', '$trooper_id_form', '$check[$a]', '1', '1')
 	");

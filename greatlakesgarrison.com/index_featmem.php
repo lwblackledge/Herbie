@@ -1,6 +1,6 @@
 <?php
 //**** FEATURED MEMBER ****
-$t_id_sql = mysql_query("
+$t_id_sql = $conn->query("
 	select feat_id, featured_member.tkid as feat_tkid, variant, photog_f_name, photog_l_name, featured_photog.photog_url, trooper_id
 	from featured_member, roster_members, featured_photog
 	where featured_member.tkid = roster_members.tkid
@@ -10,7 +10,7 @@ $t_id_sql = mysql_query("
 	limit 1
 	");
 
-while ($feat_row = mysql_fetch_array($t_id_sql)) {
+while ($feat_row = $t_id_sql->fetch_assoc()) {
 	$trooper_id = $feat_row['trooper_id'];
 	$tkid = tk_pad($feat_row['feat_tkid']);
 	

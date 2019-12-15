@@ -8,7 +8,7 @@ $get_org = mysql_query ("
 	where chcomm_id = '$chcomm_id'
 	");
 
-while ($row = mysql_fetch_array($get_org)) {
+while ($row = $get_org->fetch_assoc()) {
 	include ("../dbvars.php");
 	?>	
 <table cellpadding=5 cellspacing=0 border=0

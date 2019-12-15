@@ -6,7 +6,7 @@ $event_id_form = $_POST['id'];
 $num_events = sizeof($check);
 
 for ($a = 0; $a < $num_events; $a++) {
-	mysql_query("
+	$conn->query("
 		insert into event_participation (event_participation_id,event_id, trooper_id)
 		values ('', '$event_id_form', '$check[$a]')
 	") or die(mysql_error());

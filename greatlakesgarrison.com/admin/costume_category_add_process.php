@@ -5,7 +5,7 @@ $form_costcat = strtoupper($_POST[costcat]);
 $form_costname = addslashes($_POST[costname]);
 
 // First look for duplicates
-$dupe_search = mysql_query("
+$dupe_search = $conn->query("
 	select costume_abbr
 	from roster_costumes
 	where costume_abbr = '$form_costcat'

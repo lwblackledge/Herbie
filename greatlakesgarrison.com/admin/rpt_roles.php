@@ -1,7 +1,7 @@
 <?
 include ('admin_header.php');
 
-$officer_sql = mysql_query('
+$officer_sql = $conn->query('
 	select *
 	from roster_members, roster_roles
 	where roster_members.role_id = roster_roles.role_id
@@ -25,7 +25,7 @@ $officer_sql = mysql_query('
 		</th>
 	</tr>
 <?
-while ($row = mysql_fetch_array($officer_sql)) {
+while ($row = $officer_sql->fetch_assoc()) {
 	include ('../dbvars.php');
 	
 	echo "	<tr>

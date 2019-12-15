@@ -7,7 +7,7 @@ $mode = $_GET['mode'];
 
 switch ($mode) {
 	case "add":
-		$campaign_query = mysql_query("
+		$campaign_query = $conn->query("
 			select event_id, event_name, date_format(event_date, '%M %D, %Y') as formatted_date, event_city,
 				event_state
 			from events
@@ -16,7 +16,7 @@ switch ($mode) {
 		echo "<form method=\"post\" action=\"event_campaign_process.php\">
 ";
 
-		while ($row = mysql_fetch_array($campaign_query)) {
+		while ($row = $campaign_query->fetch_assoc()) {
 			include ('../dbvars.php');
 			$formatted_date = $row['formatted_date'];
 	

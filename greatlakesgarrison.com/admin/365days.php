@@ -2,7 +2,7 @@
 include ("../z_dbaccess.php");
 include ("../z_dbconnect.php");
 
-$over_one_year_sql = mysql_query("
+$over_one_year_sql = $conn->query("
 select tkid, roster_members.trooper_id, first_name, last_name, date_format(max(event_date), '%m/%d/%y') as last_event, e_mail, participation_role_id
 from roster_members, event_participation, events
 where roster_members.trooper_id = event_participation.trooper_id
@@ -24,7 +24,7 @@ order by event_date
 		<th colspan=3>&nbsp;</th>
 	</tr>
 <?
-while ($row=mysql_fetch_array($over_one_year_sql)) {
+while ($row=$over_one_year_sql->fetch_assoc()) {
 	$tkid = $row['tkid'];
 	$trooper_id = $row['trooper_id'];
 	$first_name = $row['first_name'];

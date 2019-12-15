@@ -7,7 +7,7 @@ $check = $_POST["event"];
 $num_events = sizeof($check);
 
 for ($a = 0; $a < $num_events; $a++) {
-	mysql_query("
+	$conn->query("
 		delete from event_participation
 		where event_participation_id = '$check[$a]'
 	");

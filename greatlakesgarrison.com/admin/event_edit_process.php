@@ -27,7 +27,7 @@ set event_name='$event_name', event_description='$event_description', event_date
 where event_id = $event_id
 ";
 
-mysql_query($edit_event_query) or die("Update failed: ".mysql_error());
+$conn->query($edit_event_query) or die("Update failed: ".mysql_error());
 
 $event_name_clean=stripslashes($event_name);
 

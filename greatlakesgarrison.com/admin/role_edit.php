@@ -10,7 +10,7 @@ $role_query = mysql_query ("
 	
 echo "Select role to edit:<P>";
 
-while ($row = mysql_fetch_array($role_query)) {
+while ($row = $role_query->fetch_assoc()) {
 	$role_id = $row['role_id'];
 	$role_name = $row['role_name'];
 	$role_abbr = $row['role_abbr'];

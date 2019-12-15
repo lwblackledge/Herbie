@@ -29,7 +29,7 @@ $demographics = array(
 	);
 
 // Check if this charity exists in the database already
-$dupe_check = mysql_query("
+$dupe_check = $conn->query("
 	select *
 	from charity_community_list
 	where chcomm_name = '$chcomm_name'
@@ -55,7 +55,7 @@ $chcomm_address1<br>
 
 	echo "<P>";
 	echo "The following similar records were found:<P>";
-	while ($row = mysql_fetch_array($dupe_check)) {
+	while ($row = $dupe_check->fetch_assoc()) {
 		$query_ch_name = $row['chcomm_name'];
 		$query_ch_city = $row['chcomm_city'];
 		$query_ch_state = $row['chcomm_state'];
@@ -81,7 +81,7 @@ $query_ch_fname $query_ch_lname<P>
 	
 } else {
 // If no duplicates found
-	mysql_query("
+	$conn->query("
 		insert into charity_community_list(chcomm_name, chcomm_address1, chcomm_address2, chcomm_city, chcomm_state, chcomm_postcode, chcomm_phone1, chcomm_phone2, chcomm_fname, chcomm_lname, chcomm_email, chcomm_lastedit)
 		values ('$chcomm_name', '$chcomm_address1', '$chcomm_address2', '$chcomm_city', '$chcomm_state', '$chcomm_postcode', '$chcomm_phone1', '$chcomm_phone2', '$chcomm_fname', '$chcomm_lname', '$chcomm_email', '$chcomm_lastedit')
 	") or die(mysql_error());

@@ -1,7 +1,7 @@
 <?
 include ("admin_header.php");
 
-$campaign_rpt = mysql_query("
+$campaign_rpt = $conn->query("
 	select *
 	from events, event_awards
 	where events.event_id = event_awards.event_id
@@ -28,7 +28,7 @@ echo "
 		</td>
 	</tr>
 ";
-while ($row = mysql_fetch_array($campaign_rpt)) {
+while ($row = $campaign_rpt->fetch_assoc()) {
 	include ("../dbvars.php");
 	
 	echo "

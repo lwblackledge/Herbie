@@ -13,7 +13,7 @@ $chcomm_lname = $_POST[chcomm_lname];
 $chcomm_email = $_POST[chcomm_email];
 $chcomm_lastedit = $_POST[chcomm_lastedit];
 
-mysql_query("
+$conn->query("
 	insert into charity_community_list(chcomm_name, chcomm_address1, chcomm_address2, chcomm_city, chcomm_state, chcomm_postcode, chcomm_phone1, chcomm_phone2, chcomm_fname, chcomm_lname, chcomm_email, chcomm_lastedit)
 	values ('$chcomm_name', '$chcomm_address1', '$chcomm_address2', '$chcomm_city', '$chcomm_state', '$chcomm_postcode', '$chcomm_phone1', '$chcomm_phone2', '$chcomm_fname', '$chcomm_lname', '$chcomm_email', '$chcomm_lastedit')
 ") or die(mysql_error());

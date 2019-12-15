@@ -24,7 +24,7 @@ switch ($search_criterion) {
 		break;
 }
 
-$member_query = mysql_query($member_query_sql);
+$member_query = $conn->query($member_query_sql);
 $num_records = mysql_num_rows($member_query);
 
 //echo $num_records;
@@ -34,7 +34,7 @@ switch ($num_records) {
 		echo "No records found.  Please click \"Back\" and search again.";
 		break;
 	case 1:
-		while ($selected_trooper = mysql_fetch_array($member_query)) {
+		while ($selected_trooper = $member_query->fetch_assoc()) {
 			$trooper_id = $selected_trooper['trooper_id'];
 			header ("Location: member_edit_form.php?id=$trooper_id");
 		}
@@ -48,7 +48,7 @@ switch ($num_records) {
 			<th>&nbsp;</th>
 		</tr>
 ";
-		while ($row=mysql_fetch_array($member_query)) {
+		while ($row=$member_query->fetch_assoc()) {
 			include ('../dbvars.php');
 			echo "
 		<tr>
@@ -76,7 +76,7 @@ switch ($num_records) {
 		<th>&nbsp;</th>
 	</tr>
 	<?
-	while ($row=mysql_fetch_array($member_query)) {
+	while ($row=$member_query->fetch_assoc()) {
 		include ('../dbvars.php');
 		echo "
 		<tr>
@@ -91,7 +91,7 @@ switch ($num_records) {
 	</table>
 	<?
 	} else {
-		while ($selected_trooper = mysql_fetch_array($member_query)) {
+		while ($selected_trooper = $member_query->fetch_assoc()) {
 			$trooper_id = $selected_trooper['trooper_id'];
 			header ("Location: member_edit_form.php?id=$trooper_id");
 		}

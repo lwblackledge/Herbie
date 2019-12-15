@@ -21,7 +21,7 @@ $event_description=addslashes($event_description);
 $add_event_query="insert into events (event_name, event_description, event_date, event_city, event_state, event_postcode, forum_topic_id, is_private, is_active) values
 ('$event_name', '$event_description', '$event_date', '$event_city', '$event_state', '$event_postcode', '$forum_topic_id', '$is_private', '1')";
 
-mysql_query($add_event_query) or die ("Database update failure: " . mysql_error());
+$conn->query($add_event_query) or die ("Database update failure: " . mysql_error());
 
 $event_name_clean=stripslashes($event_name);
 

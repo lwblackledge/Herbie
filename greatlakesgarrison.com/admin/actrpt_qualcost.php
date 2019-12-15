@@ -2,7 +2,7 @@
 include ("../z_dbaccess.php");
 include ("../z_dbconnect.php");
 
-$participation_sql = mysql_query("
+$participation_sql = $conn->query("
 	select trooper_id, tkid, first_name, last_name, e_mail, date_format(member_since, '%m/%y') as member_since
 	from roster_members
 	where trooper_id not in
@@ -40,21 +40,21 @@ $participation_sql = mysql_query("
 	</tr>
 
 <?
-while ($row = mysql_fetch_array($participation_sql)) {
+while ($row = $participation_sql->fetch_assoc()) {
 	$id = $row['trooper_id'];
 	$tkid = $row['tkid'];
 	$full_name = $row['first_name'] . " " . $row['last_name'];
 	$e_mail = $row['e_mail'];
 	$member_since = $row['member_since'];
 
-$part_non_sql = mysql_query("
+$part_non_sql = $conn->query("
 	select *
 	from event_participation
 	where trooper_id = '$id'
 	and participation_role_id = '2'
 ");
 
-$part_ncs_sql = mysql_query("
+$part_ncs_sql = $conn->query("
 	select *
 	from event_participation
 	where trooper_id = '$id'

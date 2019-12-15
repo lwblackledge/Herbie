@@ -2,7 +2,7 @@
 
 include ("admin_header.php");
 
-$track_city_sql = mysql_query("
+$track_city_sql = $conn->query("
 select distinct event_city, event_state
 from events
 where is_active = 1
@@ -11,12 +11,12 @@ and event_date < curdate()
 order by event_city
 	");
 	
-while ($row = mysql_fetch_array($track_city_sql)) {
+while ($row = $track_city_sql->fetch_assoc()) {
 	$event_city = $row['event_city'];
 	echo "<h3>$event_city</h3>";
 	echo "<ul>";
 
-	$events_by_city_sql = mysql_query("
+	$events_by_city_sql = $conn->query("
 	select event_id, event_name, event_date
 	from events
 	where event_city = '$event_city'
@@ -25,14 +25,14 @@ while ($row = mysql_fetch_array($track_city_sql)) {
 	order by event_date
 	");
 	
-	while ($row_a = mysql_fetch_array($events_by_city_sql)) {
+	while ($row_a = $events_by_city_sql->fetch_assoc()) {
 		$event_id = $row_a['event_id'];
 		$event_name = $row_a['event_name'];
 		$event_date = date("m/d/y",strtotime($row_a['event_date']));
 		echo "	<li> $event_date: $event_name ($event_id)</li>";
 		echo "		<ul type=circle>";	
 
-		$troopers_by_city_sql = mysql_query("
+		$troopers_by_city_sql = $conn->query("
 			select first_name, last_name, tkid, city, roster_members.trooper_id
 			from roster_members, event_participation
 			where roster_members.trooper_id = event_participation.trooper_id
@@ -40,7 +40,7 @@ while ($row = mysql_fetch_array($track_city_sql)) {
 			order by last_name
 			");
 		
-		while ($row_b = mysql_fetch_array($troopers_by_city_sql)) {
+		while ($row_b = $troopers_by_city_sql->fetch_assoc()) {
 			$first_name = $row_b['first_name'];
 			$last_name = $row_b['last_name'];
 			$tkid = $row_b['tkid'];

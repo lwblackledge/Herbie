@@ -6,14 +6,14 @@ include ('admin_header.php');
 $trooper_id_selection = $_GET['id'];
 
 // TROOPER'S NAME & ALL SORTS OF OTHER IDENTIFYING INFO
-$trooper_info = mysql_query("
+$trooper_info = $conn->query("
 	select *
 	from roster_members
 	where trooper_id = $trooper_id_selection
 	");
 
 // EVENTS THAT THIS TROOPER HAS PARTICIPATED IN
-$events_attended = mysql_query("
+$events_attended = $conn->query("
 	select event_participation_id, event_name, date_format(event_date, '%c/%e/%y') as formatted_date, event_date, event_city, event_state, event_participation.participation_role_id, participation_role_name
 	from event_participation, events, event_participation_role
 	where trooper_id = $trooper_id_selection
@@ -26,7 +26,7 @@ $events_attended = mysql_query("
 $num_events_attended = mysql_num_rows($events_attended);
 	
 // EVENTS THAT THIS TROOPER HAS *NOT* PARTICIPATED IN
-$events_unattended = mysql_query("
+$events_unattended = $conn->query("
 	select events.event_id, event_name, date_format(event_date, '%c/%e/%y') as formatted_date, event_date, event_city, event_state, forum_topic_id
 	from events
 	where not exists (
@@ -43,7 +43,7 @@ $num_events_unattended = mysql_num_rows($events_unattended);
 echo "<a href=\"index.php\">Back to main menu</a><P>
 ";
 
-while ($trooper_info_sql = mysql_fetch_array($trooper_info)) {
+while ($trooper_info_sql = $trooper_info->fetch_assoc()) {
 	$first_name = $trooper_info_sql['first_name'];
 	$last_name = $trooper_info_sql['last_name'];
 	$tkid = $trooper_info_sql['tkid'];
@@ -58,7 +58,7 @@ while ($trooper_info_sql = mysql_fetch_array($trooper_info)) {
 
 ";
 	if ($num_events_attended != 0) {
-		while ($events_attended_sql = mysql_fetch_array($events_attended)) {
+		while ($events_attended_sql = $events_attended->fetch_assoc()) {
 			$event_participation_id = $events_attended_sql['event_participation_id'];
 			$event_name = $events_attended_sql['event_name'];
 			$event_date = $events_attended_sql['event_date'];
@@ -102,7 +102,7 @@ while ($trooper_info_sql = mysql_fetch_array($trooper_info)) {
 	<input type="submit" value="Add to Database"> * <input type="reset"><P>
 
 <?
-while ($events_unattended_sql = mysql_fetch_array($events_unattended)) {
+while ($events_unattended_sql = $events_unattended->fetch_assoc()) {
 	$u_event_id = $events_unattended_sql['event_id'];
 	$u_event_name = $events_unattended_sql['event_name'];
 	$u_event_date = $events_unattended_sql['event_date'];

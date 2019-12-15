@@ -39,7 +39,7 @@ $troopers_unattended_sql = mysql_query ("
 
 echo "<a href=\"index.php\">Back to main menu</a><P>";
 
-while ($event_info_array = mysql_fetch_array($event_info_sql)) {
+while ($event_info_array = $event_info_sql->fetch_assoc()) {
 	$event_name = $event_info_array['event_name'];
 	$event_date = $event_info_array['event_date'];
 	$event_city = $event_info_array['event_city'];
@@ -64,7 +64,7 @@ while ($event_info_array = mysql_fetch_array($event_info_sql)) {
 	<P>
 				<table cellpadding=5 cellspacing=0 border=0>
 	<?
-		while ($troopers_unattended_array = mysql_fetch_array($troopers_unattended_sql)) {
+		while ($troopers_unattended_array = $troopers_unattended_sql->fetch_assoc()) {
 			$u_first_name = $troopers_unattended_array['first_name']; 
 			$u_last_name = $troopers_unattended_array['last_name']; 
 			$u_tkid = $troopers_unattended_array['tkid']; 
@@ -87,7 +87,7 @@ while ($event_info_array = mysql_fetch_array($event_info_sql)) {
 			<td valign=top width=400>
 <form method="post" action="tod_removefromevent_process.php">
 	<?
-		while ($troopers_attended_array = mysql_fetch_array($troopers_attended_sql)) {
+		while ($troopers_attended_array = $troopers_attended_sql->fetch_assoc()) {
 			$a_first_name = $troopers_attended_array['first_name'];
 			$a_last_name = $troopers_attended_array['last_name'];
 			$a_tkid = $troopers_attended_array['tkid'];
