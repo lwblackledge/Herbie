@@ -10,6 +10,10 @@ $t_id_sql = $conn->query("
 	limit 1
 	");
 
+if (!$t_id_sql) {
+	throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
+}
+
 while ($feat_row = $t_id_sql->fetch_assoc()) {
 	$trooper_id = $feat_row['trooper_id'];
 	$tkid = tk_pad($feat_row['feat_tkid']);

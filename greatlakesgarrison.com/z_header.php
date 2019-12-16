@@ -15,25 +15,19 @@ include_once ("scripts/functions.php");
 <title>Michigan 501st</title>
 </head>
 
-<body background="img/starfield.jpg" bgcolor="#000000">
+<body background="img/starfield.jpg" style="background-color: #000;">
 <center>
 	<div class="superoutside">
 		<div id="header">
 
-<?php
-	if ($april_fools == 1) {
-		echo "		<img src=\"img/header_logo.png\" border=0 /> <img src=\"img/subtitle_401.png\" border=0/>";
-	} else {
-		echo "		<img src=\"img/header_logo.png\" border=0 /> <img src=\"img/subtitle.png\" border=0/>";
-	}
-?>
+			<img src="img/header_logo.png" style="border:none;" /> <img src="img/subtitle.png" style="border:none;" />
 
 			<div style="float: right; width: 147px; height: 200px; margin-top: 10px;">
 				<!--img src="img/glgx5_180.png" width=147 height=180-->
 			</div>
 		</div>
-    <a href="https://www.facebook.com/pages/Great-Lakes-Garrison/209654639056514"><img src="img/icon_fb.png" border=0/></a></li>
-    <a href="http://www.twitter.com/mi501st"><img src="img/icon_tw.png" border=0 /></a></li>
+    <a href="https://www.facebook.com/pages/Great-Lakes-Garrison/209654639056514"><img src="img/icon_fb.png" style="border:none;"/></a></li>
+    <a href="http://www.twitter.com/mi501st"><img src="img/icon_tw.png" style="border:none;" /></a></li>
 		<?php include ("menu.php"); ?>
 
 		<div class="content">
