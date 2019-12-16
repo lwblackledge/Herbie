@@ -1,7 +1,7 @@
 <?php
 // phpBB 3.0.x auto-generated configuration file
 // Do not change anything in this file!
-$dbms = 'mysql'; //database type it may not be mysql
+$dbms = 'mysqli'; //database type it may not be mysql
 #$dbhost = 'db.greatlakesgarrison.com';
 $dbhost = 'localhost';
 $dbport = '';

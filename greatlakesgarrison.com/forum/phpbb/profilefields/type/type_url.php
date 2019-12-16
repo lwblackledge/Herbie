@@ -29,9 +29,9 @@ class type_url extends type_string
 	public function get_options($default_lang_id, $field_data)
 	{
 		$options = array(
-			0 => array('TITLE' => $this->user->lang['FIELD_LENGTH'],		'FIELD' => '<input type="number" min="0" name="field_length" size="5" value="' . $field_data['field_length'] . '" />'),
-			1 => array('TITLE' => $this->user->lang['MIN_FIELD_CHARS'],	'FIELD' => '<input type="number" min="0" name="field_minlen" size="5" value="' . $field_data['field_minlen'] . '" />'),
-			2 => array('TITLE' => $this->user->lang['MAX_FIELD_CHARS'],	'FIELD' => '<input type="number" min="0" name="field_maxlen" size="5" value="' . $field_data['field_maxlen'] . '" />'),
+			0 => array('TITLE' => $this->user->lang['FIELD_LENGTH'],		'FIELD' => '<input type="number" min="0" max="99999" name="field_length" value="' . $field_data['field_length'] . '" />'),
+			1 => array('TITLE' => $this->user->lang['MIN_FIELD_CHARS'],	'FIELD' => '<input type="number" min="0" max="99999" name="field_minlen" value="' . $field_data['field_minlen'] . '" />'),
+			2 => array('TITLE' => $this->user->lang['MAX_FIELD_CHARS'],	'FIELD' => '<input type="number" min="0" max="99999" name="field_maxlen" value="' . $field_data['field_maxlen'] . '" />'),
 		);
 
 		return $options;
@@ -64,11 +64,24 @@ class type_url extends type_string
 			return false;
 		}
 
-		if (!preg_match('#^' . get_preg_expression('url') . '$#iu', $field_value))
+		if (!preg_match('#^' . get_preg_expression('url_http') . '$#iu', $field_value))
 		{
 			return $this->user->lang('FIELD_INVALID_URL', $this->get_field_name($field_data['lang_name']));
 		}
 
 		return false;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function get_profile_value($field_value, $field_data)
+	{
+		if (!preg_match('#^' . get_preg_expression('url_http') . '$#iu', $field_value))
+		{
+			return null;
+		}
+
+		return parent::get_profile_value($field_value, $field_data);
 	}
 }

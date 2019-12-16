@@ -86,11 +86,11 @@
 		<legend>{L_GROUP_SETTINGS_SAVE}</legend>
 	<dl>
 		<dt><label for="group_message_limit">{L_GROUP_MESSAGE_LIMIT}{L_COLON}</label><br /><span>{L_GROUP_MESSAGE_LIMIT_EXPLAIN}</span></dt>
-		<dd><input name="group_message_limit" type="number" id="group_message_limit" maxlength="4" size="4" min="0" max="9999" value="{GROUP_MESSAGE_LIMIT}" /></dd>
+		<dd><input name="group_message_limit" type="number" id="group_message_limit" min="0" max="9999" value="{GROUP_MESSAGE_LIMIT}" /></dd>
 	</dl>
 	<dl>
 		<dt><label for="group_max_recipients">{L_GROUP_MAX_RECIPIENTS}{L_COLON}</label><br /><span>{L_GROUP_MAX_RECIPIENTS_EXPLAIN}</span></dt>
-		<dd><input name="group_max_recipients" type="number" id="group_max_recipients" maxlength="10" size="4" value="{GROUP_MAX_RECIPIENTS}" /></dd>
+		<dd><input name="group_max_recipients" type="number" id="group_max_recipients" min="0" max="9999" value="{GROUP_MAX_RECIPIENTS}" /></dd>
 	</dl>
 	<dl>
 		<dt><label for="group_colour">{L_GROUP_COLOR}{L_COLON}</label><br /><span>{L_GROUP_COLOR_EXPLAIN}</span></dt>
@@ -267,11 +267,12 @@
 
 	<!-- EVENT acp_groups_manage_before -->
 	<table class="table1">
-		<col class="col1" /><col class="col1" /><col class="col2" /><col class="col2" /><col class="col2" />
+		<col class="col1" /><col class="col1" /><col class="col1" /><col class="col2" /><col class="col2" /><col class="col2" />
 	<thead>
 	<tr>
 		<th style="width: 50%">{L_GROUP}</th>
 		<th>{L_TOTAL_MEMBERS}</th>
+		<th>{L_PENDING_MEMBERS}</th>
 		<th colspan="2">{L_OPTIONS}</th>
 		<th>{L_ACTION}</th>
 	</tr>
@@ -281,7 +282,7 @@
 		<!-- IF groups.S_SPECIAL -->
 		<!-- IF groups.S_FIRST_ROW -->
 			<tr>
-				<td colspan="5" class="row3">{L_NO_GROUPS_CREATED}</td>
+				<td colspan="6" class="row3">{L_NO_GROUPS_CREATED}</td>
 			</tr>
 		<!-- ENDIF -->
 	</tbody>
@@ -302,11 +303,12 @@
 	<p>{L_SPECIAL_GROUPS_EXPLAIN}</p>
 
 	<table class="table1">
-		<col class="col1" /><col class="col1" /><col class="col2" /><col class="col2" /><col class="col2" />
+		<col class="col1" /><col class="col1" /><col class="col1" /><col class="col2" /><col class="col2" />
 	<thead>
 	<tr>
 		<th style="width: 50%">{L_GROUP}</th>
 		<th>{L_TOTAL_MEMBERS}</th>
+		<th>{L_PENDING_MEMBERS}</th>
 		<th colspan="2">{L_OPTIONS}</th>
 		<th>{L_ACTION}</th>
 	</tr>
@@ -314,8 +316,9 @@
 	<tbody>
 		<!-- ELSE -->
 		<tr>
-			<td><strong>{groups.GROUP_NAME}</strong></td>
+			<td><strong<!-- IF groups.GROUP_COLOR --> style="color: #{groups.GROUP_COLOR}"<!-- ENDIF -->>{groups.GROUP_NAME}</strong></td>
 			<td style="text-align: center;">{groups.TOTAL_MEMBERS}</td>
+			<td style="text-align: center;">{groups.PENDING_MEMBERS}</td>
 			<td style="text-align: center;"><a href="{groups.U_EDIT}">{L_SETTINGS}</a></td>
 			<td style="text-align: center;"><a href="{groups.U_LIST}">{L_MEMBERS}</a></td>
 			<td style="text-align: center;"><!-- IF not groups.S_GROUP_SPECIAL and groups.U_DELETE --><a href="{groups.U_DELETE}" data-ajax="row_delete">{L_DELETE}</a><!-- ELSE -->{L_DELETE}<!-- ENDIF --></td>
