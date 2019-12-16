@@ -1,11 +1,6 @@
 <?php
 
-// $host="db.greatlakesgarrison.com";
-// $uname="glgdb";
-// $keycard="scarif_terrible_it_security";
-// $db_name = "mi501";
-
-$db_host="localhost";
+$db_host="db.greatlakesgarrison.com";
 $uname="glgdb";
-$keycard="scarif_terrible_it_security!T1";
+$keycard="scarif_terrible_it_security";
 $db_name = "mi501";
