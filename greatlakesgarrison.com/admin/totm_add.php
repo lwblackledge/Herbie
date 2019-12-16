@@ -39,7 +39,7 @@ Tied result for this month?
 <input type="radio" name="is_tied" value="1"> Yes ||
 <input type="radio" name="is_tied" value="0" checked> No
 <P>
-<input type="hidden" name="trooper_id" value="<? echo $id; ?>">
+<input type="hidden" name="trooper_id" value="<?php echo $id; ?>">
 <input type="submit" value="Add..."> * <input type="reset">
 <P>
 <?php

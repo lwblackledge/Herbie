@@ -1,4 +1,4 @@
-<? include ('admin_header.php'); ?>
+<?php include ('admin_header.php'); ?>
 
 <form action="role_process.php" method="post">
 
@@ -25,4 +25,4 @@
 
 </form>
 
-<? include ("admin_footer.php"); ?>
+<?php include ("admin_footer.php"); ?>

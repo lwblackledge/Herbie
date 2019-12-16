@@ -2,17 +2,14 @@
 include ("z_header.php");
 
 // Default roster display of all members
-// have to force the results so we can count them
-$roster_sql = $conn->prepare("
+$roster_sql = $conn->query("
 	select *
 	from roster_members, roster_roles
 	where status_id=1
 	and roster_members.role_id = roster_roles.role_id
 	order by tkid
-");
-$roster_sql->execute();
-$roster_sql->store_result();
-$num_records = $roster_sql->num_rows;
+") or trigger_error($conn->error . " [$sql]");
+$roster_count_records = $roster_sql->num_rows;
 
 $gml_sql = $conn->query("
 	select concat(first_name,' ',last_name) as gml_name, e_mail
@@ -25,12 +22,12 @@ $cell_count = 1;
 
 ?>
 <h1><?php echo $unit_name; ?> Members</h1>
-<b><? echo $num_records; ?> active members</b>
+<b><?php echo $roster_count_records; ?> active members</b>
 <br />
 <a name="top"></a>
 <?php
 while ($gml_row = $gml_sql->fetch_assoc()) {
-	$gml_name=$gml_row['gml_name'];
+	$gml_name = $gml_row['gml_name'];
 	$e_mail = $gml_row['e_mail'];
 
 	echo "<br><b>Members:</b> If you find a discrepancy in your listing here, please contact GML <a href=\"mailto:$e_mail\">$gml_name</a>.
@@ -43,7 +40,7 @@ while ($gml_row = $gml_sql->fetch_assoc()) {
 <table cellpadding=5 cellspacing=20 border=0>
 	<tr>
 <?php
-while ($row=$roster_sql->fetch_assoc()) {
+while ($row = $roster_sql->fetch_assoc()) {
     include ('z_dbvars.php');
 
     $img_thumb = "rosterimg/" . tk_pad($tkid) . "_tn.gif";

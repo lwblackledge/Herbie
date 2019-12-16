@@ -35,4 +35,4 @@ echo "<input type=\"hidden\" name=\"lookup\" value=\"$lookup_function\">
 <input type="submit" value="Find..."> <input type="reset" value="Clear">
 </form>
 <P>
-<? include ('admin_footer.php'); ?>
+<?php include ('admin_footer.php'); ?>

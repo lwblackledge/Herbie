@@ -147,4 +147,4 @@ while ($row=$status_query->fetch_assoc()) {
 <input type="submit" value="Add..."> <input type="reset" value="Clear">
 </form>
 
-<? include ('admin_footer.php'); ?>
+<?php include ('admin_footer.php'); ?>

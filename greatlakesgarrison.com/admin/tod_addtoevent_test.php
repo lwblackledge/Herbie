@@ -79,7 +79,7 @@ while ($event_info_array = $event_info_sql->fetch_assoc()) {
 			}
 	?>
 		</table>
-	<input type="hidden" name="id" value="<? echo $form_event_id; ?>">
+	<input type="hidden" name="id" value="<?php echo $form_event_id; ?>">
 	<P>
 	<input type="submit" value ="Add to Database"> * <input type="reset">
 </form>
@@ -117,7 +117,7 @@ while ($event_info_array = $event_info_sql->fetch_assoc()) {
 	<P>
 	<input type="submit" value ="Remove from list"> * <input type="reset">
 </form>
-	<form action="tod_editrole.php" method="post"><button name="event_list" value="<? echo $form_event_id; ?>">Edit participation role</button></form>
+	<form action="tod_editrole.php" method="post"><button name="event_list" value="<?php echo $form_event_id; ?>">Edit participation role</button></form>
 			</td>
 		</tr>
 	</table>

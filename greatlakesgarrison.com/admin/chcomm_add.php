@@ -99,7 +99,7 @@ include ("admin_header.php");
 		<td><input type="text" size="15" maxlength="50" name="chcomm_email"></td>
 	</tr>
 </table>
-<input type="hidden" name="chcomm_lastedit" value="<? echo date("Y-m-d"); ?>">
+<input type="hidden" name="chcomm_lastedit" value="<?php echo date("Y-m-d"); ?>">
 <P>
 <input type="submit" value="Enter"> * <input type="reset">
 		</td>

@@ -26,7 +26,7 @@ $officer_sql = $conn->query('
 	</tr>
 <?php
 while ($row = $officer_sql->fetch_assoc()) {
-	include ('../dbvars.php');
+	include ('../z_dbvars.php');
 	
 	echo "	<tr>
 		<td>

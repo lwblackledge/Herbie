@@ -198,4 +198,4 @@ for ($q = 1; $q < 13; $q++) {
 <input type="submit" value="Save"> * <input type="reset">
 </form>
 
-<? include ('admin_footer.php'); ?>
+<?php include ('admin_footer.php'); ?>

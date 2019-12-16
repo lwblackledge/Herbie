@@ -17,6 +17,6 @@ for ($a = 0; $a < $num_events; $a++) {
 ?>
 Added.
 <P>
-<form action="tod_editrole.php" method="post"><button name="event_list" value="<? echo $event_id_form; ?>">Edit participation role</button></form>
+<form action="tod_editrole.php" method="post"><button name="event_list" value="<?php echo $event_id_form; ?>">Edit participation role</button></form>
 <P>
 <a href="event_search.php?type=tod_addtoevent">Add troopers to another event</a> or <a href="index.php">return to main menu</a>.

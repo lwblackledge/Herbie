@@ -86,6 +86,6 @@ while ($costume_info = $outfit_not_sql->fetch_assoc()) {
 	}
 ?>
 	<P>
-	<input type="hidden" name="trooperid" value="<? echo $id; ?>">
+	<input type="hidden" name="trooperid" value="<?php echo $id; ?>">
 	<input type="Submit" value="Add to Database"> * <input type="Reset">
 </form>

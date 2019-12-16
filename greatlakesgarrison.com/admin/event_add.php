@@ -102,4 +102,4 @@ include ('admin_header.php');
 <input type="submit" value="Add event">  <input type="reset">
 </form>
 
-<? include ('admin_footer.php'); ?>
+<?php include ('admin_footer.php'); ?>

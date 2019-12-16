@@ -11,7 +11,7 @@ $event_list = $conn->query("
 
 ?>
 
-<form method="post" action="<? echo $search_type; ?>.php">
+<form method="post" action="<?php echo $search_type; ?>.php">
 
 Select event (events displayed in reverse chronological order):<br>
 	<select name="event_list">
@@ -30,4 +30,4 @@ while ($row = $event_list->fetch_assoc()) {
 
 </form>
 
-<? include ('admin_footer.php'); ?>
+<?php include ('admin_footer.php'); ?>

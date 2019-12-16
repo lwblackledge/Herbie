@@ -74,9 +74,9 @@ CONTROL PANEL</h1></div>
 		<li> Donation tracking
 	</ul>
 
-<? include ('admin_menu.php'); ?>
+<?php include ('admin_menu.php'); ?>
 
-<? include ("changelog.php");
+<?php include ("changelog.php");
 $this_day = date("n/d/Y");
 
 echo "Admin Utility version: $curr_version<br>" . $this_day;

@@ -97,7 +97,7 @@ while ($trooper_info_sql = $trooper_info->fetch_assoc()) {
 <b>Unattended Events:</b>
 <P>
 <form method="post" action="tod_addtomember_process.php">
-	<input type="hidden" name="id" value="<? echo $trooper_id_selection; ?>">
+	<input type="hidden" name="id" value="<?php echo $trooper_id_selection; ?>">
 	<P>
 	<input type="submit" value="Add to Database"> * <input type="reset"><P>
 
@@ -122,7 +122,7 @@ while ($events_unattended_sql = $events_unattended->fetch_assoc()) {
 ";
 	}
 ?>
-	<input type="hidden" name="id" value="<? echo $trooper_id_selection; ?>">
+	<input type="hidden" name="id" value="<?php echo $trooper_id_selection; ?>">
 	<P>
 	<input type="submit" value="Add to Database"> * <input type="reset">
 </form>

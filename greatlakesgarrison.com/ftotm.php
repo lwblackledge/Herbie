@@ -32,7 +32,7 @@ $all_ftotm = $conn->query("
 	order by ftotm_id desc
 	");
 ?>
-<h1>Get to Know Your MI501st :: <? echo $full_month_name . ", " . $get_year; ?></h1>
+<h1>Get to Know Your MI501st :: <?php echo $full_month_name . ", " . $get_year; ?></h1>
 <br>
 <table cellpadding=10 cellspacing=0 border=0>
 	<tr>

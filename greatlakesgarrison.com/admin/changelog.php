@@ -9,6 +9,10 @@
 <?php
 // GLG Admin Utility
 // Change Log
+$version[] = "0.12";
+$release_date[] = "12/15/19";
+$notes[] = "PHP 7 support. Removing short PHP tags";
+
 $version[] = "0.11";
 $release_date[] = "6/2/12";
 $notes[] = "Added \"Featured Trooper of the Month\" add/edit capability. <P>Updated files: ftotm_add.php, ftotm_add_process.php, ftotm_edit_select.php, ftotm_edit.php, ftotm_edit_process.php";

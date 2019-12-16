@@ -13,6 +13,7 @@ $trooper_info=$conn->query("
 	where roster_members.state_id = roster_state_id.state_id
 	and trooper_id = $trooper_id
 	and roster_members.role_id = roster_roles.role_id
+	limit 1
 ") or die ("Trooper info not loaded.");
 
 $trooper_costumes=$conn->query("
@@ -239,14 +240,14 @@ echo "<P>
 <center>
 <table cellpadding=0 cellspacing=10 border=0 width="100%">
 	<tr>
-		<td valign=top width="50%" align=center><h1> <? echo $first_name . "'s costume";
+		<td valign=top width="50%" align=center><h1> <?php echo $first_name . "'s costume";
 		if ($costume_qty > 1) {
 			echo "s";
 		}
 		echo ":";
 		?> </h1>
 <?php
-while ($row=$trooper_costumes->fetch_assoc()) {
+while ($row = $trooper_costumes->fetch_assoc()) {
 	include ("z_dbvars.php");
 		$filename = $padded_tk . $costume_abbr . "_" . $outfit_variant . ".jpg";
 		if (file_exists("rosterimg/$filename")) {
@@ -325,5 +326,5 @@ while ($row2 = $events_sql->fetch_assoc()) {
 	</tr>
 </table>
 </center>
-<p align=right><a href="roster.php"><img src="img/back_arrow.png"border=0> Back</a></p>
+<p align=right><a href="roster.php">&larr; Back</a></p>
 

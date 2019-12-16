@@ -42,7 +42,7 @@ $get_event_id = $conn->insert_id;
 
 ?>
 <form action="tod_addtoevent.php" method="post">
-	<input type="hidden" name="event_list" value="<? echo $get_event_id; ?>">
+	<input type="hidden" name="event_list" value="<?php echo $get_event_id; ?>">
 	<input type="submit" value="Add troopers">
 </form>
 <?php
