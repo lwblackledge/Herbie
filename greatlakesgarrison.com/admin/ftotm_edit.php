@@ -7,10 +7,12 @@ $choose_record = $conn->query("
 	from ftotm, roster_members
 	where ftotm_tkid = roster_members.tkid
 	and ftotm.ftotm_id = $id
-") or die("Error: " . mysql_error());
+");
+if (!$choose_record) {
+	throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
+}
 
-
-$ftotm_record = mysql_fetch_row($choose_record);
+$ftotm_record = $choose_record->fetch_row;
 	$tkid = $ftotm_record[0];
 	$month = $ftotm_record[1];
 	$year = $ftotm_record[2];

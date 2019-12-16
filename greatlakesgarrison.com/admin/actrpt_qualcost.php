@@ -17,7 +17,7 @@ $participation_sql = $conn->query("
 		)
 	and status_id = 1
 	order by last_name
-") or die(mysql_error());
+");
 
 ?>
 
@@ -61,9 +61,9 @@ $part_ncs_sql = $conn->query("
 	and participation_role_id = '3'
 ");
 
-	$part_non_count = mysql_num_rows($part_non_sql);
+	$part_non_count = $part_non_sql->num_rows;
 
-	$part_ncs_count = mysql_num_rows($part_ncs_sql);
+	$part_ncs_count = $part_ncs_sql->num_rows;
 
 	echo "
 	<tr>

@@ -1,7 +1,7 @@
 <?
 include ('admin_header.php');
 
-$role_query = mysql_query ("
+$role_query = $conn->query("
 	select *
 	from roster_roles
 	where role_id > 8

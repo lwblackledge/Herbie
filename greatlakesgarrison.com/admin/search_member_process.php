@@ -31,7 +31,7 @@ switch ($search_criterion) {
 }
 
 $member_query = $conn->query($member_query_sql);
-$num_records = mysql_num_rows($member_query);
+$num_records = $member_query->num_rows;
 
 //echo $num_records;
 

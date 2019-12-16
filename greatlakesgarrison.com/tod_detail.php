@@ -18,13 +18,13 @@ include ("z_dbconnect.php");
 
 $selected_event_id = $_GET['id'];
 
-$event_detail = mysql_query ("
+$event_detail = $conn->query("
 	select *, date_format(event_date,'%M %e, %Y') as formatted_date
 	from events
 	where event_id = '$selected_event_id'
 	");
 	
-$participant_query = mysql_query ("
+$participant_query = $conn->query("
 	select *
 	from roster_members, event_participation, events
 	where roster_members.trooper_id = event_participation.trooper_id

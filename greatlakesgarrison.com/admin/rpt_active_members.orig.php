@@ -34,7 +34,7 @@ $active_rpt_sql = $conn->query("
 	order by $sort_order
 	");
 
-$active_count = mysql_num_rows($active_rpt_sql);
+$active_count = $active_rpt_sql->num_rows;
 
 echo "<b>Active Troopers:</b> $active_count<br>
 ";

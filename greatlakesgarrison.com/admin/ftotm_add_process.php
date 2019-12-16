@@ -17,10 +17,12 @@ $add_ftotm = $conn->query("
 		'$select_text',
 		$select_show
 		)
-	") or die ("Error: " . mysql_error());
+	")
 	
 if ($add_ftotm) {
 	echo "Successfully added trooper $select_tkid for $select_month/$select_year.";
 	header("Location: index.php", 3);
+} else {
+	throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
 }
 ?>

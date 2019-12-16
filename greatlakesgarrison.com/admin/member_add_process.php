@@ -18,7 +18,7 @@ $member_date=date("Y-m-j" , $unix_event_date);
 
 /* CHECK IF RECORD ALREADY EXISTS */
 $check_table=$conn->query("select * from roster_members where tkid=$add_tk");
-$num_rows=mysql_num_rows($check_table);
+$num_rows=$check_table->num_rows;
 
 if ($num_rows>0){
 	echo"TKID $add_tk already exists.<P>Click <b>Back</b> to correct or 

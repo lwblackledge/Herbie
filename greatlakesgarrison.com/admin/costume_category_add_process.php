@@ -11,7 +11,7 @@ $dupe_search = $conn->query("
 	where costume_abbr = '$form_costcat'
 	");
 	
-if (mysql_num_rows($dupe_search) != 0) {
+if ($dupe_search->num_rows != 0) {
 	echo "Duplicate record found for $form_costcat.";
 	include ("costume_category_add.php");
 	include_once("admin_footer.php");
@@ -20,10 +20,12 @@ if (mysql_num_rows($dupe_search) != 0) {
 
 // No duplicate found; continue processing.
 
-mysql_query ("
+if (!$conn->query("
 	insert into roster_costumes(costume_abbr, costume_name)
 	values ('$form_costcat', '$form_costname')
-	") or die("Insertion error: " . mysql_error());
+	")) {
+		throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
+	}
 
 echo "Added <b>$form_costcat</b>: <i>$form_costname</i>";
 ?>

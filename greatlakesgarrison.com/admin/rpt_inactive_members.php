@@ -34,7 +34,7 @@ $inactive_rpt_sql = $conn->query("
 	order by $sort_order
 	");
 
-$inactive_count = mysql_num_rows($inactive_rpt_sql);
+$inactive_count = $inactive_rpt_sql->num_rows;
 
 echo "<b>Inactive Troopers:</b> $inactive_count<br>
 ";

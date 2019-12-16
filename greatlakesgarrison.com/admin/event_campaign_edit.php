@@ -34,7 +34,7 @@ switch ($mode) {
 		break;
 
 	case "subtract":
-		mysql_query ("
+		$conn->query("
 			update event_awards
 			set campaign_active = '0'
 			where event_id = $id
@@ -43,7 +43,7 @@ switch ($mode) {
 		break;
 
 	case "reactivate":
-		mysql_query ("
+		$conn->query("
 			update event_awards
 			set campaign_active = '1'
 			where event_id = $id

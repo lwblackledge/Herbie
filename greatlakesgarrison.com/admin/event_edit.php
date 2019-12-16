@@ -17,7 +17,7 @@ $check_campaign = $conn->query("
 	where event_id = $event_id_selected
 	");
 	
-$is_campaign = mysql_num_rows($check_campaign);
+$is_campaign = $check_campaign->num_rows;
 
 while ($row = $event_query->fetch_assoc()) {
 	include ('../z_dbvars.php');

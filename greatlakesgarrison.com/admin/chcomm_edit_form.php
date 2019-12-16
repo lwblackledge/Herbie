@@ -2,7 +2,7 @@
 include ("admin_header.php");
 $chcomm_id = $_POST[chcomm_id];
 
-$get_org = mysql_query ("
+$get_org = $conn->query("
 	select *
 	from charity_community_list
 	where chcomm_id = '$chcomm_id'

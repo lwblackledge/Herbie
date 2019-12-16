@@ -3,13 +3,13 @@ include ('admin_header.php');
 
 $costume_id_selected = $_POST[costume_select];
 
-$costume_dtl = mysql_query ("
+$costume_dtl = $conn->query("
 	select costume_name, costume_abbr
 	from roster_costumes
 	where costume_id = $costume_id_selected
 ");
 
-$costume_rpt = mysql_query ("	
+$costume_rpt = $conn->query("	
 	select *
 	from roster_members, roster_outfit, roster_costumes
 	where roster_members.trooper_id = roster_outfit.trooper_id
@@ -20,7 +20,7 @@ $costume_rpt = mysql_query ("
 	order by last_name
 ");
 
-$costume_num = mysql_num_rows($costume_rpt);
+$costume_num = $costume_rpt->num_rows;
 
 while ($dtl = $costume_dtl->fetch_assoc()) {
 	$costume_name = $dtl[costume_name];

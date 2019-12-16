@@ -16,7 +16,7 @@ $gml_sql = $conn->query("
 	where role_id = 4
 	");
 
-$num_records=mysql_num_rows($roster_sql);
+$num_records=$roster_sql->num_rows;
 
 $max_cols = 6;
 $cell_count = 1;

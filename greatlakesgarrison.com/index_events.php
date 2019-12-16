@@ -9,7 +9,7 @@ $event_sql = $conn->query("
 	limit 0,5
 	");
 	
-$downthepike = mysql_query ("
+$downthepike = $conn->query("
 	select event_name, date_format(event_date, '%c/%e') as short_date_dtp, event_city, event_state
 	from events
 	where is_private <> 1

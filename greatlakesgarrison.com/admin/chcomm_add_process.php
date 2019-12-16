@@ -35,7 +35,7 @@ $dupe_check = $conn->query("
 	where chcomm_name = '$chcomm_name'
 	");
 
-$records = mysql_num_rows($dupe_check);
+$records = $dupe_check->num_rows;
 
 if ($records > 0) {
 	echo "<font color=\"#ff0000\"><b>Possible duplicates found!</b></font><P>
@@ -81,10 +81,12 @@ $query_ch_fname $query_ch_lname<P>
 	
 } else {
 // If no duplicates found
-	$conn->query("
+	if (!$conn->query("
 		insert into charity_community_list(chcomm_name, chcomm_address1, chcomm_address2, chcomm_city, chcomm_state, chcomm_postcode, chcomm_phone1, chcomm_phone2, chcomm_fname, chcomm_lname, chcomm_email, chcomm_lastedit)
 		values ('$chcomm_name', '$chcomm_address1', '$chcomm_address2', '$chcomm_city', '$chcomm_state', '$chcomm_postcode', '$chcomm_phone1', '$chcomm_phone2', '$chcomm_fname', '$chcomm_lname', '$chcomm_email', '$chcomm_lastedit')
-	") or die(mysql_error());
+	")) {
+		throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
+	}
 	echo "Added:<br>
 ";	
 	foreach ($demographics as $data_field) {

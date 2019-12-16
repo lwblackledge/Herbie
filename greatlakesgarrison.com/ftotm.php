@@ -15,7 +15,7 @@ $get_month = preg_replace('/[^0-9]/', '', $get_month);
 $get_year = preg_replace('/[^0-9]/', '', $get_year); 
 $full_month_name = date("F", mktime(0,0,0,$get_month+1,0,$get_year));
 
-$ftotm_full = mysql_query ("
+$ftotm_full = $conn->query("
 	select trooper_id, first_name, last_name, roster_members.tkid, member_since, ftotm_text
 	from ftotm, roster_members
 	where ftotm.ftotm_tkid = roster_members.tkid
@@ -23,7 +23,7 @@ $ftotm_full = mysql_query ("
 	and ftotm_year = $get_year
 	");
 	
-$all_ftotm = mysql_query ("
+$all_ftotm = $conn->query("
 	select first_name, last_name, roster_members.tkid, ftotm_month, ftotm_year
 	from ftotm, roster_members
 	where ftotm.ftotm_tkid = roster_members.tkid
@@ -75,7 +75,7 @@ echo "<P>";
 <?
 echo "<h2>All Featured Troopers:</h2>";
 echo "<br>";
-while ($list_all = mysql_fetch_array ($all_ftotm)) {
+while ($list_all = $all_ftotm->fetch_assoc()) {
 	$list_fname = $list_all['first_name'];
 	$list_lname = $list_all['last_name'];
 	$tkid = $list_all['tkid'];

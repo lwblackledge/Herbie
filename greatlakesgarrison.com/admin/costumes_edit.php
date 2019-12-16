@@ -4,14 +4,14 @@ include ('admin_header.php');
 $id = $_GET['id'];
 
 // GET TROOPER INFORMATION
-$trooper_sql = mysql_query ("
+$trooper_sql = $conn->query("
 	select first_name, last_name, tkid
 	from roster_members
 	where trooper_id = $id
 	");
 	
 // GET OWNED COSTUME INFORMATION
-$outfit_sql = mysql_query ("
+$outfit_sql = $conn->query("
 	select *
 	from roster_outfit, roster_costumes
 	where trooper_id = $id
@@ -19,7 +19,7 @@ $outfit_sql = mysql_query ("
 	");
 	
 // GET COSTUMES NOT OWNED
-$outfit_not_sql = mysql_query ("
+$outfit_not_sql = $conn->query("
 	SELECT costume_id, costume_name, costume_abbr
 	FROM roster_costumes
 	WHERE NOT EXISTS (
@@ -30,7 +30,7 @@ $outfit_not_sql = mysql_query ("
 		)
 	");
 	
-while ($trooper_info = mysql_fetch_array ($trooper_sql)) {
+while ($trooper_info = $trooper_sql->fetch_assoc()) {
 	$t_first_name = $trooper_info['first_name'];
 	$t_last_name = $trooper_info['last_name'];
 	$t_tkid = $trooper_info['tkid'];
@@ -43,7 +43,7 @@ while ($trooper_info = mysql_fetch_array ($trooper_sql)) {
 <form method="post" action="costume_edit_active.php">
 <table cellpadding=5 cellspacing=0 border=0>
 <?	
-	while ($owned_info = mysql_fetch_array ($outfit_sql)) {
+	while ($owned_info = $outfit_sql->fetch_assoc()) {
 		$outfit_id = $owned_info['outfit_id'];
 		$costume_name = $owned_info['costume_name'];
 		$costume_abbr = $owned_info['costume_abbr'];
@@ -76,7 +76,7 @@ echo "<hr size=1>
 <form method=\"post\" action=\"costumes_edit_process.php\">
 ";
 
-while ($costume_info = mysql_fetch_array ($outfit_not_sql)) {
+while ($costume_info = $outfit_not_sql->fetch_assoc()) {
 	$n_costume_id = $costume_info['costume_id'];
 	$n_costume_name = $costume_info['costume_name'];
 	$n_costume_abbr = $costume_info['costume_abbr'];

@@ -12,7 +12,7 @@ where $search_criterion = '$member_search'
 and status_id < 3
 ");
 
-$records_found = mysql_num_rows($search);
+$records_found = $search->num_rows;
 
 switch ($records_found) {
 	case 0:

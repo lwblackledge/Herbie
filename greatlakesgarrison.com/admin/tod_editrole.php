@@ -4,21 +4,23 @@ $form_event_id = $_POST['event_list'];
 
 include ("admin_header.php");
 
-$participation_sql = mysql_query ("
+$participation_sql = $conn->query("
 	select *
 	from events, event_participation, event_participation_role, roster_members
 	where roster_members.trooper_id = event_participation.trooper_id
 	and event_participation.participation_role_id = event_participation_role.participation_role_id
 	and event_participation.event_id = events.event_id
 	and events.event_id = $form_event_id
-	order by last_name
-	") or die (mysql_error());
+	order by last_name");
 	
-$event_info_sql = mysql_query ("
+$event_info_sql = $conn->query("
 	select event_name, date_format(event_date, '%c/%e/%y') as event_date, event_city, event_state, is_active
 	from events
-	where event_id = $form_event_id
-	");
+	where event_id = $form_event_id");
+
+if (!$participation_sql || !$event_info_sql) {
+	throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
+}
 	
 while ($ev_row = $event_info_sql->fetch_assoc()) {
 	$event_name = $ev_row['event_name'];

@@ -5,7 +5,7 @@ include ('admin_header.php');
 $form_event_id = 290;
 
 // EVENT INFORMATION BASED ON EVENT_ID
-$event_info_sql = mysql_query ("
+$event_info_sql = $conn->query("
 	select event_name, event_date, event_city, event_state, is_active
 	from events
 	where event_id = $form_event_id
@@ -14,7 +14,7 @@ $event_info_sql = mysql_query ("
 	");
 
 // TROOPERS WHO HAVE PARTICIPATED IN THIS EVENT
-$troopers_attended_sql = mysql_query ("
+$troopers_attended_sql = $conn->query("
 	select first_name, last_name, tkid, roster_members.trooper_id, event_participation_id, event_participation.participation_role_id, participation_role_name
 	from event_participation, roster_members, event_participation_role
 	where event_participation.trooper_id = roster_members.trooper_id
@@ -25,7 +25,7 @@ $troopers_attended_sql = mysql_query ("
 	");
 
 // TROOPERS WHO HAVEN'T PARTICIPATED IN THIS EVENT
-$troopers_unattended_sql = mysql_query ("
+$troopers_unattended_sql = $conn->query("
 	select first_name, last_name, tkid, trooper_id
 	from roster_members
 	where status_id < 4

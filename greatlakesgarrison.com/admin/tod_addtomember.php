@@ -23,7 +23,7 @@ $events_attended = $conn->query("
 	order by event_date desc
 	");
 	
-$num_events_attended = mysql_num_rows($events_attended);
+$num_events_attended = $events_attended->num_rows;
 	
 // EVENTS THAT THIS TROOPER HAS *NOT* PARTICIPATED IN
 $events_unattended = $conn->query("
@@ -38,7 +38,7 @@ $events_unattended = $conn->query("
 	order by event_date desc
 	");
 
-$num_events_unattended = mysql_num_rows($events_unattended);
+$num_events_unattended = $events_unattended->num_rows;
 
 echo "<a href=\"index.php\">Back to main menu</a><P>
 ";

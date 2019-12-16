@@ -36,7 +36,7 @@ $events_sql = $conn->query("
 	order by event_year desc, event_date desc
 	") or die ("Events not loaded.");
 	
-$num_events = mysql_query ("
+$num_events = $conn->query("
 	select event_participation_id
 	from event_participation, events
 	where trooper_id = $trooper_id
@@ -44,10 +44,10 @@ $num_events = mysql_query ("
 	and is_active = 1
 	");
 	
-$total_events = mysql_num_rows($num_events);
+$total_events = $num_events->num_rows;
 
 // **** ERROR HANDLING: Invalid Trooper ID ****
-if (mysql_num_rows($trooper_info) == 0) {
+if ($trooper_info->num_rows == 0) {
 	echo "
 	<h1>Unknown Trooper</h1>
 	<div style=\"float: left; width: 50%\">
@@ -159,7 +159,7 @@ echo "
 		and is_active = 1
 		");
 	
-	$num_events = mysql_num_rows($num_events_query);
+	$num_events = $num_events_query->num_rows;
 
 	switch ($num_events) {
 		case $num_events > 24 && $num_events < 50:

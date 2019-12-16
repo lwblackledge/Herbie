@@ -3,7 +3,7 @@ include ('admin_header.php');
 
 $flag_id = $_GET['id'];
 
-$role_query = mysql_query ("
+$role_query = $conn->query("
 	select *
 	from roster_roles
 	where role_id = $flag_id

@@ -1,7 +1,7 @@
 <?
 include ("admin_header.php");
 
-$find_chcomm = mysql_query ("
+$find_chcomm = $conn->query("
 	select chcomm_id, chcomm_name, chcomm_city, chcomm_state
 	from charity_community_list
 	order by chcomm_name, chcomm_city

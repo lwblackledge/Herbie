@@ -16,7 +16,7 @@ $trooper_participation = $conn->query("
 	order by event_date desc
 	");
 	
-if (mysql_num_rows($trooper_participation) == 0) {
+if ($trooper_participation->num_rows == 0) {
 	while ($row1=$getname->fetch_assoc()) {
 		$fullname = $row1["name"];
 		echo "$fullname does not have any tours of duty.

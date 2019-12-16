@@ -4,7 +4,7 @@ include ('admin_header.php');
 $id = $_GET['id'];
 
 // GET TROOPER INFO
-$trooper_info = mysql_query ("
+$trooper_info = $conn->query("
 	select *
 	from roster_members, roster_state_id, roster_status, roster_roles
 	where trooper_id = $id
@@ -14,7 +14,7 @@ $trooper_info = mysql_query ("
 	");
 	
 // GET COSTUME INFO
-$costume_info = mysql_query ("
+$costume_info = $conn->query("
 	select *
 	from roster_outfit, roster_costumes
 	where roster_outfit.costume_id = roster_costumes.costume_id
@@ -22,7 +22,7 @@ $costume_info = mysql_query ("
 	");
 	
 // GET EVENT INFO
-$event_info = mysql_query ("
+$event_info = $conn->query("
 	select *
 	from events, event_participation, event_participation_role
 	where event_participation.event_id = events.event_id
@@ -35,7 +35,7 @@ $event_info = mysql_query ("
 echo "<h1>Demographic Info</h1>
 ";
 
-while ($t_row = mysql_fetch_array ($trooper_info)) {
+while ($t_row = $trooper_info->fetch_assoc()) {
 	$trooper_id = $t_row['trooper_id'];
 	$first_name = $t_row['first_name'];
 	$last_name = $t_row['last_name'];
@@ -61,7 +61,7 @@ echo "<hr size=1>
 <ul>
 ";
 
-while ($c_row = mysql_fetch_array ($costume_info)) {
+while ($c_row = $costume_info->fetch_assoc()) {
 	$costume_name = $c_row['costume_name'];
 	$costume_abbr = $c_row['costume_abbr'];
 	
@@ -84,7 +84,7 @@ echo "<hr size=1>
 	</tr>
 ";
 $event_count = 1;
-while ($e_row = mysql_fetch_array ($event_info)) {
+while ($e_row = $event_info->fetch_assoc()) {
 	$event_id = $e_row['event_id'];
 	$event_date = $e_row['event_date'];
 	$event_name = $e_row['event_name'];

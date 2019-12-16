@@ -9,9 +9,11 @@ $edit_ftotm = $conn->query("
 	update ftotm
 	set ftotm_text = '$select_text'
 	where ftotm_id = $id
-	") or die ("Error: " . mysql_error());
+	");
 	
 if ($edit_ftotm) {
 	echo "Edit successful:";
+} else {
+	throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
 }
 ?>

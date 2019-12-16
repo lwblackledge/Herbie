@@ -43,7 +43,7 @@ while ($row=$record_select->fetch_assoc()) {
 	}
 	}
 
-mysql_close();
+$conn->close();
 
 include ("admin_footer.php");
 ?>

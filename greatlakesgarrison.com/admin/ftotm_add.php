@@ -4,7 +4,7 @@
 include ("admin_header.php");
 
 // Get TKIDs of all currently active GLG members who haven't been featured already.  Yes, I know they're not technically called "TKIDs" anymore, but it's still shorter to write out.
-	$tkid_list = mysql_query ("
+	$tkid_list = $conn->query("
 		select tkid, first_name, last_name
 		from roster_members
 		where status_id = 1
@@ -12,7 +12,7 @@ include ("admin_header.php");
 		order by tkid
 	");
 	
-	$troopers_left = mysql_num_rows($tkid_list);
+	$troopers_left = $tkid_list->num_rows;
 
 // Break out the current month and year from the current date to act as the default values to select.
 	$current_month = date("m");

@@ -21,7 +21,9 @@ $event_description=addslashes($event_description);
 $add_event_query="insert into events (event_name, event_description, event_date, event_city, event_state, event_postcode, forum_topic_id, is_private, is_active) values
 ('$event_name', '$event_description', '$event_date', '$event_city', '$event_state', '$event_postcode', '$forum_topic_id', '$is_private', '1')";
 
-$conn->query($add_event_query) or die ("Database update failure: " . mysql_error());
+if (!$conn->query($add_event_query)) {
+	throw new Exception("SQL Query failed: (" . $conn->errno . ") " . $conn->error);
+}
 
 $event_name_clean=stripslashes($event_name);
 
@@ -36,7 +38,7 @@ Date: $event_date<br>
 <hr size=1>
 ";
 
-$get_event_id = mysql_insert_id();
+$get_event_id = $conn->insert_id;
 
 ?>
 <form action="tod_addtoevent.php" method="post">
