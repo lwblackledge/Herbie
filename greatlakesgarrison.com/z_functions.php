@@ -1,18 +1,17 @@
-<?
+<?php
+
 // SITE VARS
+$april_fools = 0;
+$unit_name = "Great Lakes Garrison";
+$unit_abbrev = "GLG";
+
 if (date("Y-m-d") == "2019-04-01" || date("Y-m-d") == "2019-04-02") {
 	$april_fools = 1;
 	$unit_name = "Great Mikes Garrison";
 	$unit_abbrev = "GMG";
-} else {
-	$april_fools = 0;
-	$unit_name = "Great Lakes Garrison";
-	$unit_abbrev = "GLG";
 }
 
-
 // FUNCTIONS
-
 function tk_pad($tk_number) {
 	$number_length = strlen($tk_number);
 	
@@ -33,6 +32,3 @@ function tk_pad($tk_number) {
 	
 	return $padded_tk;
 }
-
-
-?>

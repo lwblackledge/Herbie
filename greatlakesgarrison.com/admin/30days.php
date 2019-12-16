@@ -1,4 +1,4 @@
-<?
+<?php
 include ("../z_dbaccess.php");
 include ("../z_dbconnect.php");
 
@@ -23,7 +23,7 @@ order by event_date
 		<th width=120>Last event date</th>
 		<th colspan=3>&nbsp;</th>
 	</tr>
-<?
+<?php
 while ($row=$in_30_days_sql->fetch_assoc()) {
 	$tkid = $row['tkid'];
 	$trooper_id = $row['trooper_id'];

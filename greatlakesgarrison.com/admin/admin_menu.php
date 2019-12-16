@@ -1,4 +1,4 @@
-<?
+<?php
 $link[] = "index.php";
 $name[] = "Front page";
 

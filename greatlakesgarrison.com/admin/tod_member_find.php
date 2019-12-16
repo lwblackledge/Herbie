@@ -1,4 +1,4 @@
-<?
+<?php
 //TOD Member Search
 include ('admin_header.php');
 

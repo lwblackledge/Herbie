@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $id = $_GET['id'];

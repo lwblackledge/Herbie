@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $search_criterion=$_POST['search_criterion'];
@@ -75,7 +75,7 @@ switch ($num_records) {
 		<th>Status</th>
 		<th>&nbsp;</th>
 	</tr>
-	<?
+	<?php
 	while ($row=$member_query->fetch_assoc()) {
 		include ('../dbvars.php');
 		echo "
@@ -89,7 +89,7 @@ switch ($num_records) {
 	}
 	?>
 	</table>
-	<?
+	<?php
 	} else {
 		while ($selected_trooper = $member_query->fetch_assoc()) {
 			$trooper_id = $selected_trooper['trooper_id'];

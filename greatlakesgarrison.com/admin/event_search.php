@@ -1,4 +1,4 @@
-<?
+<?php
 $search_type = $_GET['type'];
 
 include ('admin_header.php');
@@ -15,7 +15,7 @@ $event_list = $conn->query("
 
 Select event (events displayed in reverse chronological order):<br>
 	<select name="event_list">
-<?
+<?php
 while ($row = $event_list->fetch_assoc()) {
 	include ('../z_dbvars.php');
 	echo "		<option value=\"$event_id\">$event_date - $event_name ($event_city)</option>

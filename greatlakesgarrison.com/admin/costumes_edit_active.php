@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $outfit_id_form = $_GET['o_id'];

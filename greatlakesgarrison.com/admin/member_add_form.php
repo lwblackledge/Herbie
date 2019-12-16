@@ -87,7 +87,7 @@ $state_sql = $conn->query("
 		</td>
 		<td>
 			<select name="costume">
-<?
+<?php
 while($row=$costume_query->fetch_assoc()) {
 	include ('../z_dbvars.php');
 	
@@ -130,7 +130,7 @@ while ($row=$status_query->fetch_assoc()) {
 				<option value="12">December</option>
 			</select>
 			<select name="member_year">
-			<?
+			<?php
 				$select_year = date("Y");
 				include ("event_year_list.php");
 			?>

@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $id = $_GET['id'];
@@ -28,7 +28,7 @@ $state_sql = $conn->query("
 <h2>Edit Member</h2>
 <form action="member_edit_process.php" method="post">
 
-<?
+<?php
 while ($row=$trooper_detail->fetch_assoc()) {
 	include ('../z_dbvars.php');
 	echo "
@@ -125,7 +125,7 @@ echo "
 		</td>
 		<td>
 			<select name="member_month">
-<?
+<?php
 /*
 $this_month = date('n',$member_since);
 for ($q = 1; $q < 13; $q++) {
@@ -140,7 +140,7 @@ for ($q = 1; $q < 13; $q++) {
 ?>
 			</select>
 			<select name="member_year">
-			<?
+			<?php
 				$select_year = date("Y");
 				include ("event_year_list.php");
 */			?>
@@ -152,7 +152,7 @@ for ($q = 1; $q < 13; $q++) {
 			Role:
 		</td>
 		<td>
-<?
+<?php
 	$trooper_role = $role_id;
 
 	while ($row3 = $role_query->fetch_assoc()) {
@@ -177,7 +177,7 @@ for ($q = 1; $q < 13; $q++) {
 			Classified?:
 		</td>
 		<td>
-<?
+<?php
 	switch ($classified) {
 		case 1:
 			echo "			<input type=\"radio\" name=\"classified\" value=\"1\" checked> Yes |

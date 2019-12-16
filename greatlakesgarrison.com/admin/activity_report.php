@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 include ("30days.php");
 echo "<P>";

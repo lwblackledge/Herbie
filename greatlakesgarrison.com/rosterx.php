@@ -25,7 +25,7 @@ $trooper_costumes=$conn->query("
 	order by roster_costumes.costume_id, outfit_variant
 ") or die ("Costumes not loaded.");
 
-$costume_qty = mysql_num_rows ($trooper_costumes);
+$costume_qty = $trooper_costumes->num_rows;
 
 $events_sql = $conn->query("
 	select date_format(event_date, '%c / %e / %y') as formatted_date, event_date, year(event_date) as event_year, event_name, event_city, event_state, participation_role_id
@@ -245,7 +245,7 @@ echo "<P>
 		}
 		echo ":";
 		?> </h1>
-<?
+<?php
 while ($row=$trooper_costumes->fetch_assoc()) {
 	include ("z_dbvars.php");
 		$filename = $padded_tk . $costume_abbr . "_" . $outfit_variant . ".jpg";
@@ -261,7 +261,7 @@ while ($row=$trooper_costumes->fetch_assoc()) {
 		<td valign=top width="50%">
 			<div style="text-align: center;">
 			<h1>Tours of Duty</h1>
-			<?
+			<?php
 				echo "($total_events";
 				if ($total_events == 1) {
 					echo " event";
@@ -278,7 +278,7 @@ while ($row=$trooper_costumes->fetch_assoc()) {
 
 
 			<table cellpadding=0 cellspacing=5>
-<?
+<?php
 $year_check = 0;
 while ($row2 = $events_sql->fetch_assoc()) {
 	$event_date = $row2['event_date'];

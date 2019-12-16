@@ -1,4 +1,4 @@
-<?
+<?php
 /*
    blog_calendar MOD for phpbb-blog MOD
    Version 1.0.0 released July 25, 2005 by wileydaver@snappitypop.com

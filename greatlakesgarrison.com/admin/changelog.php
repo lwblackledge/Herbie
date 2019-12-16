@@ -6,7 +6,7 @@
 	}
 //-->
 </style>
-<?
+<?php
 // GLG Admin Utility
 // Change Log
 $version[] = "0.11";
@@ -78,7 +78,7 @@ $curr_version = $version[0];
 		<th width=300>Notes</th>
 	</tr>
 
-<?
+<?php
 for ($a=0; $a < sizeof($version); $a++) {
 	echo "
 	<tr>

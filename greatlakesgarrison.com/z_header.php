@@ -1,7 +1,7 @@
 <?php 
-include_once ("z_dbaccess.php");
-include_once ("z_dbconnect.php");
-include_once ("scripts/functions.php");
+include_once 'z_dbaccess.php';
+include_once 'z_dbconnect.php';
+include_once 'z_functions.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
@@ -19,8 +19,13 @@ include_once ("scripts/functions.php");
 <center>
 	<div class="superoutside">
 		<div id="header">
-
-			<img src="img/header_logo.png" style="border:none;" /> <img src="img/subtitle.png" style="border:none;" />
+<?php
+	if ($april_fools == 1) {
+		echo "		<img src=\"img/header_logo.png\" border=0 /> <img src=\"img/subtitle_401.png\" border=0/>";
+	} else {
+		echo "		<img src=\"img/header_logo.png\" border=0 /> <img src=\"img/subtitle.png\" border=0/>";
+	}
+?>
 
 			<div style="float: right; width: 147px; height: 200px; margin-top: 10px;">
 				<!--img src="img/glgx5_180.png" width=147 height=180-->

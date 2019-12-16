@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 $chcomm_name = $_POST[chcomm_name];
 $chcomm_address1 = $_POST[chcomm_address1];

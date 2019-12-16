@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 
 $campaign_rpt = $conn->query("

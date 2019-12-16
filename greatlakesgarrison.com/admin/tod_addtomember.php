@@ -1,4 +1,4 @@
-<?
+<?php
 // ADD TOD TO MEMBER
 
 include ('admin_header.php');
@@ -101,7 +101,7 @@ while ($trooper_info_sql = $trooper_info->fetch_assoc()) {
 	<P>
 	<input type="submit" value="Add to Database"> * <input type="reset"><P>
 
-<?
+<?php
 while ($events_unattended_sql = $events_unattended->fetch_assoc()) {
 	$u_event_id = $events_unattended_sql['event_id'];
 	$u_event_name = $events_unattended_sql['event_name'];

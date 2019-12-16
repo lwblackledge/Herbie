@@ -1,4 +1,4 @@
-<?
+<?php
 // ADD CAMPAIGN
 include ('admin_header.php');
 

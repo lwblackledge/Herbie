@@ -1,4 +1,6 @@
 <?php
+include_once 'z_functions.php';
+
 //**** FEATURED MEMBER ****
 $t_id_sql = $conn->query("
 	select feat_id, featured_member.tkid as feat_tkid, variant, photog_f_name, photog_l_name, featured_photog.photog_url, trooper_id

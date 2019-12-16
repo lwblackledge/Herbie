@@ -11,10 +11,10 @@ include ("config.php");
 CONTROL PANEL</h1></div>
 <br>
 
-<?
+<?php
 include_once ('../z_dbaccess.php');
 include_once ('../z_dbconnect.php');
-include_once ('../scripts/functions.php');
+include_once ('../z_functions.php');
 ?>
 <a href="index.php">Back to Main Admin Screen</a>
 <hr size=1>

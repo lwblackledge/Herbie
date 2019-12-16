@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $event_name=$_POST[event_name];
@@ -45,7 +45,7 @@ $get_event_id = $conn->insert_id;
 	<input type="hidden" name="event_list" value="<? echo $get_event_id; ?>">
 	<input type="submit" value="Add troopers">
 </form>
-<?
+<?php
 
 if ($forum_topic_id != null) {
 	echo "Jump to <a href=\"http://dev.mi501st.com/forum/viewtopic.php?t=$forum_topic_id\">forum topic</a>.";

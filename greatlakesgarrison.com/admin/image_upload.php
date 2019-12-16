@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 echo "File upload results:<P>";

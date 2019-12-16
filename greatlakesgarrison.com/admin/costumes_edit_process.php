@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $check = $_POST["costume_select"];

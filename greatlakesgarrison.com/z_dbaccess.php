@@ -9,5 +9,3 @@ $db_host="localhost";
 $uname="glgdb";
 $keycard="scarif_terrible_it_security!T1";
 $db_name = "mi501";
-
-?>

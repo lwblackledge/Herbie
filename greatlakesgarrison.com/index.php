@@ -1,5 +1,5 @@
 <?php
-include ("z_header.php");
+include 'z_header.php';
 require_once('magpierss/rss_fetch.inc');
 $url='http://www.501st.com/news.php';
 ?>

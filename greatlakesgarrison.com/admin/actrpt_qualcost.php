@@ -1,4 +1,4 @@
-<?
+<?php
 include ("../z_dbaccess.php");
 include ("../z_dbconnect.php");
 
@@ -39,7 +39,7 @@ $participation_sql = $conn->query("
 		</th>
 	</tr>
 
-<?
+<?php
 while ($row = $participation_sql->fetch_assoc()) {
 	$id = $row['trooper_id'];
 	$tkid = $row['tkid'];

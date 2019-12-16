@@ -1,7 +1,7 @@
-<?
+<?php
 include ('../z_dbaccess.php');
 include ('../z_dbconnect.php');
-include ('../scripts/functions.php');
+include ('../z_functions.php');
 $search_criterion=$_POST['search_criterion'];
 $search_term=$_POST['member_search'];
 $lookup_function = $_POST['lookup'];

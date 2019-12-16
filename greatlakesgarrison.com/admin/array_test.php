@@ -1,4 +1,4 @@
-<?
+<?php
 $i = array (10, 12, 13, 25);
 foreach ($i as $v) {
 print "Present value of \$i: $v <br> ";

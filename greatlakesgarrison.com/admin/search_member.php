@@ -1,4 +1,4 @@
-<?
+<?php
 // SEARCH MEMBER
 include ('admin_header.php');
 
@@ -27,7 +27,7 @@ echo" <form method=\"post\" action=\"search_member_process.php\">";
 </table> 
 <P>
 
-<?
+<?php
 echo "<input type=\"hidden\" name=\"lookup\" value=\"$lookup_function\">
 ";
 ?>

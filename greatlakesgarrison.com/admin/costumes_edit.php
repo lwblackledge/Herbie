@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $id = $_GET['id'];
@@ -71,7 +71,7 @@ while ($trooper_info = $trooper_sql->fetch_assoc()) {
 ?>
 </table>
 </form>
-<?
+<?php
 echo "<hr size=1>
 <form method=\"post\" action=\"costumes_edit_process.php\">
 ";

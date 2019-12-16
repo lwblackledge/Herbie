@@ -1,4 +1,4 @@
-<?
+<?php
 #$start_year = date('Y') - 10;
 $start_year = date('Y') - 20;
 $end_year = date('Y') + 1;

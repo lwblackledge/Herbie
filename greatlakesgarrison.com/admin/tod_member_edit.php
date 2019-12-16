@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $trooper_id=$_GET[id];

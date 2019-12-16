@@ -19,3 +19,6 @@
 </center>
 </body>
 </html>
+
+<?php
+	$conn->close();

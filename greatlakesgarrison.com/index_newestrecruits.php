@@ -14,7 +14,7 @@ $new_member_sql = $conn->query($new_member_query);
 
 <table cellpadding=5 cellspacing=0 border=0>
 
-<?
+<?php
 while ($newest = $new_member_sql->fetch_assoc()) {
 	$trooper_id = $newest['trooper_id'];
 
@@ -69,4 +69,3 @@ echo "</table>
 ";
 // *********** END NEWEST RECRUITS *****************
 // *************************************************
-?>

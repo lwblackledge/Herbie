@@ -1,4 +1,4 @@
-<?
+<?php
 include ('z_header.php');
 ?>
 
@@ -64,6 +64,6 @@ A "sock puppet" refers to an alias being used by a member in order to hide their
 The forum rules will be revised from time to time.  Although it is ultimately the member's responsibility to periodically check the rules to keep up to date, members may not always be able to do so. 
 
 
-<?
+<?php
 include ('z_footer.php');
 ?>

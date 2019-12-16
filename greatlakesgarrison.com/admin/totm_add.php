@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $id = $_GET['id'];
@@ -12,7 +12,7 @@ $trooper_detail = $conn->query("
 ?>
 <h2>Trooper of the Month</h2>
 <form action="totm_process.php" method="post">
-<?
+<?php
 while ($row = $trooper_detail->fetch_assoc()) {
 	include ("../dbvars.php");
 	echo "<b>$first_name $last_name ($tkid)</b><P>
@@ -21,12 +21,12 @@ while ($row = $trooper_detail->fetch_assoc()) {
 	$select_month = date("m") - 1;
 ?>
 <select name="totm_month">
-<?
+<?php
 	include ("totm_month_list.php");
 ?>
 </select>
 <select name="totm_year">
-<?
+<?php
 	$select_year = date("Y");
 	include ("event_year_list.php");
 ?>
@@ -42,7 +42,7 @@ Tied result for this month?
 <input type="hidden" name="trooper_id" value="<? echo $id; ?>">
 <input type="submit" value="Add..."> * <input type="reset">
 <P>
-<?
+<?php
 	}
 	
 include ("admin_footer.php");

@@ -1,4 +1,4 @@
-<?
+<?php
 //MEMBER TOD
 $nf = $_GET[nf];
 

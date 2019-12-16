@@ -12,7 +12,7 @@ body, td	{
 
 <body>
 
-<?
+<?php
 include ("z_dbaccess.php");
 include ("z_dbconnect.php");
 

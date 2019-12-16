@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 $chcomm_id = $_POST[chcomm_id];
 
@@ -117,7 +117,7 @@ while ($row = $get_org->fetch_assoc()) {
 <input type="hidden" name="chcomm_lastedit" value="<? echo date("Y-m-d"); ?>">
 <P>
 <input type="submit" value="Enter"> * <input type="reset">
-<?
+<?php
 	}
 	
 include ("admin_footer.php");

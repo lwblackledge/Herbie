@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $costume_list = $conn->query("
@@ -11,7 +11,7 @@ $costume_list = $conn->query("
 
 <form method="post" action="rpt_costume_display.php">
 
-<?
+<?php
 while ($row = $costume_list->fetch_assoc()) {
 	include ('../dbvars.php');
 	echo "	<input type=\"radio\" name=\"costume_select\" value=\"$costume_id\"> $costume_abbr - $costume_name <br>
@@ -25,6 +25,6 @@ while ($row = $costume_list->fetch_assoc()) {
 
 <!--Or <a href="rpt_costume_all.php">select all costumes</a>.-->
 
-<?
+<?php
 include ('admin_footer.php');
 ?>

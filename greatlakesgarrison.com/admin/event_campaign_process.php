@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 
 $event_id_form = $_POST['event_id'];

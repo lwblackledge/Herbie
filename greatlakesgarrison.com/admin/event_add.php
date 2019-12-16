@@ -1,4 +1,4 @@
-<?
+<?php
 // ADD EVENT
 include ('admin_header.php');
 ?>
@@ -22,7 +22,7 @@ include ('admin_header.php');
 		<td>
 			Month:
 			<select name="event_date_month">
-			<?
+			<?php
 				for ($a = 1;$a < 13;$a++) {
 					echo "				<option value=\"$a\">$a</option>
 ";
@@ -34,7 +34,7 @@ include ('admin_header.php');
 			
 			Year:
 			<select name="event_date_year">
-<?
+<?php
 	$select_year = date("Y");
 	include ('event_year_list.php');
 ?>

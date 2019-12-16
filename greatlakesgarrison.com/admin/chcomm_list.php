@@ -1,4 +1,4 @@
-<?
+<?php
 include ('../dbaccess.php');
 include ('../dbconnect.php');
 

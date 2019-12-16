@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $costume_id_selected = $_POST[costume_select];

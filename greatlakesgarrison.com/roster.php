@@ -1,22 +1,24 @@
-<?
+<?php
 include ("z_header.php");
 
 // Default roster display of all members
-$roster_sql = $conn->query("
+// have to force the results so we can count them
+$roster_sql = $conn->prepare("
 	select *
 	from roster_members, roster_roles
 	where status_id=1
 	and roster_members.role_id = roster_roles.role_id
 	order by tkid
 ");
+$roster_sql->execute();
+$roster_sql->store_result();
+$num_records = $roster_sql->num_rows;
 
 $gml_sql = $conn->query("
 	select concat(first_name,' ',last_name) as gml_name, e_mail
 	from roster_members
 	where role_id = 4
 	");
-
-$num_records=$roster_sql->num_rows;
 
 $max_cols = 6;
 $cell_count = 1;
@@ -26,8 +28,8 @@ $cell_count = 1;
 <b><? echo $num_records; ?> active members</b>
 <br />
 <a name="top"></a>
-<?
-while ($gml_row=$gml_sql->fetch_assoc()) {
+<?php
+while ($gml_row = $gml_sql->fetch_assoc()) {
 	$gml_name=$gml_row['gml_name'];
 	$e_mail = $gml_row['e_mail'];
 
@@ -40,7 +42,7 @@ while ($gml_row=$gml_sql->fetch_assoc()) {
 <center>
 <table cellpadding=5 cellspacing=20 border=0>
 	<tr>
-<?
+<?php
 while ($row=$roster_sql->fetch_assoc()) {
     include ('z_dbvars.php');
 
@@ -88,7 +90,10 @@ echo "
 	</tr>
 </table>
 </center>
-";	
+";
+
+$roster_sql->close();
+$gml_sql->close();
 
 include ("z_footer.php");
 	

@@ -1,4 +1,4 @@
-<?
+<?php
 $event_sql = $conn->query("
 	select event_name, event_description, date_format(event_date, '%a., %c/%e') as short_date, event_city, event_state
 	from events
@@ -35,7 +35,7 @@ while ($row=$event_sql->fetch_assoc()) {
 	echo "<P>";
 }
 ?>
-<?
+<?php
 while ($row_b = $downthepike->fetch_assoc()) {
 	$event_name_b=$row_b['event_name'];
 	$short_date_b=$row_b['short_date_dtp'];

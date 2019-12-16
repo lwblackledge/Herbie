@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $flag_id = $_GET['id'];
@@ -29,6 +29,6 @@ while ($row = $role_query->fetch_assoc()) {
 <input type="submit" value="Submit"> || <input type="reset">
 </form>
 
-<?
+<?php
 include ('admin_footer.php');	
 ?>

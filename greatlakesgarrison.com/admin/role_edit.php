@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $role_query = $conn->query("

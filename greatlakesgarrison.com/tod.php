@@ -1,12 +1,11 @@
-<?
+<?php
 include ('z_header.php');
 
 include ('tod_head.php');
 ?>
 
 <!--img src="img/tod_head.png" width=500 height=200 style="border: 1px solid #2e4c82"-->
-<P>
-<?
+<?php
 $tour_query=$conn->query("
 	select event_id, event_date, date_format(event_date, '%c / %e / %y') as formatted_date, year(event_date) as event_year, event_name, event_city, event_state
 	from events
@@ -18,10 +17,10 @@ $tour_query=$conn->query("
 	
 
 $year_check=0;
-$total_events = mysql_num_rows ($tour_query);
+$total_events = $tour_query->num_rows;
 
-echo "Total recorded events: $total_events";
-echo "<P>Click on the <img src=\"img/tod_pop.gif\"> symbol to call up a detailed listing of the event, including participants.";
+echo "<h1>Total recorded events: $total_events</h1>";
+echo "<p>Click on the <img src=\"img/tod_pop.gif\"> symbol to call up a detailed listing of the event, including participants.</p>";
 
 while ($row=$tour_query->fetch_assoc()) {
 	include ('z_dbvars.php');	

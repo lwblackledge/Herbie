@@ -37,7 +37,7 @@ $all_ftotm = $conn->query("
 <table cellpadding=10 cellspacing=0 border=0>
 	<tr>
 		<td valign=top width=650>
-<?
+<?php
 while ($parse = $ftotm_full->fetch_assoc()) {
 	$ftotm_fname = $parse['first_name'];
 	$ftotm_lname = $parse['last_name'];
@@ -72,7 +72,7 @@ echo "<P>";
 ?>
 		</td>
 		<td style="border-left: 1px #1a6da2 dashed;" valign=top width=250>
-<?
+<?php
 echo "<h2>All Featured Troopers:</h2>";
 echo "<br>";
 while ($list_all = $all_ftotm->fetch_assoc()) {

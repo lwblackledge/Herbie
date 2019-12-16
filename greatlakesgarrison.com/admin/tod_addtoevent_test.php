@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 //$form_event_id = $_POST['event_list'];
@@ -63,7 +63,7 @@ while ($event_info_array = $event_info_sql->fetch_assoc()) {
 	<input type="submit" value ="Add to Database"> * <input type="reset">
 	<P>
 				<table cellpadding=5 cellspacing=0 border=0>
-	<?
+	<?php
 		while ($troopers_unattended_array = $troopers_unattended_sql->fetch_assoc()) {
 			$u_first_name = $troopers_unattended_array['first_name']; 
 			$u_last_name = $troopers_unattended_array['last_name']; 
@@ -86,7 +86,7 @@ while ($event_info_array = $event_info_sql->fetch_assoc()) {
 			</td>
 			<td valign=top width=400>
 <form method="post" action="tod_removefromevent_process.php">
-	<?
+	<?php
 		while ($troopers_attended_array = $troopers_attended_sql->fetch_assoc()) {
 			$a_first_name = $troopers_attended_array['first_name'];
 			$a_last_name = $troopers_attended_array['last_name'];

@@ -1,4 +1,4 @@
-<?
+<?php
 include ('admin_header.php');
 
 $officer_sql = $conn->query('
@@ -24,7 +24,7 @@ $officer_sql = $conn->query('
 			
 		</th>
 	</tr>
-<?
+<?php
 while ($row = $officer_sql->fetch_assoc()) {
 	include ('../dbvars.php');
 	

@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 // add new charity/community recipient to directory
 ?>
@@ -110,6 +110,6 @@ include ("admin_header.php");
 		</td>
 	</tr>
 </table>
-<?
+<?php
 include ("admin_footer.php");
 ?>

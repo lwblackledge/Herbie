@@ -1,4 +1,4 @@
-<?
+<?php
 // EDIT EVENT
 include ('admin_header.php');
 

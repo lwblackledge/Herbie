@@ -1,4 +1,4 @@
-<?
+<?php
 include ("admin_header.php");
 
 $role_name = $_POST['role_name'];

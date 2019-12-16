@@ -1,4 +1,4 @@
-<?
+<?php
 $form_event_id = $_POST['event_list'];
 //$form_event_id = 290;
 
